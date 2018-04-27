@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import TestView from '@/components/test001/TestView'
+import ParentView from '@/components/test001/ParentView'
 
 
 
@@ -15,9 +15,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/TestView',
-      name: 'TestView',
-      component: TestView
+      path: '/TestView001',
+      name: 'TestView001',
+      component: ParentView
     }
   ]
 })

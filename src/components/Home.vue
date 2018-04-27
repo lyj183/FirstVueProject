@@ -36,9 +36,13 @@
           </el-menu-item>
         </el-menu>
       </el-col>
-      <el-col :span="20">
+      <el-col :span="18">
         <div v-if="indexPath[1]=='1-1-1'">
           <parent-view></parent-view>
+        </div>
+      </el-col>
+      <el-col :span="2">
+        <div>
         </div>
       </el-col>
     </el-row>
@@ -61,10 +65,10 @@ export default {
   },
   methods: {
     handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
       this.index = key;
       this.indexPath = keyPath;
-      console.log("indexPath: " + this.indexPath);
+      // console.log("indexPath: " + this.indexPath);
     }
   }
 }

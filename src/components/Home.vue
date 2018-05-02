@@ -40,6 +40,9 @@
         <div v-if="indexPath[1]=='1-1-1'">
           <parent-view></parent-view>
         </div>
+        <div v-if="indexPath[1]=='1-1-2'">
+          <parent-slot-view></parent-slot-view>
+        </div>
       </el-col>
       <el-col :span="2">
         <div>
@@ -51,10 +54,12 @@
 
 <script>
 import parentView from './test001/ParentView.vue'
+import parentSlotView from './test002/ParentSlotView.vue'
 export default {
   name: 'Home',
   components : {
-    parentView
+    parentView,
+    parentSlotView
   },
   data() {
     return {

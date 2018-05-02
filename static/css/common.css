@@ -1,0 +1,13 @@
+/* 通用css */
+.parent-view-content-wrap {
+  height: 300px;
+}
+.view-interval {
+  margin-top: 20px;
+}
+.child-view-content-wrap {
+  border: 1px solid #ddd;
+}
+.child-two-view {
+  margin-left: 20px;
+}

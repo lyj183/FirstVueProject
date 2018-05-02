@@ -9,12 +9,14 @@
     </div>
     <div class="parent-view-content-wrap">
       <el-row type="flex" justify="center">
-        <el-col :span="6">
-          <div class="parent-view-title">
+          <div class="view-interval">
             <h1>父组件</h1>
-            <p>子组件->父组件：{{title}}</p>
           </div>
-        </el-col>
+      </el-row>
+      <el-row type="flex" justify="center">
+          <div class="view-interval">
+            <p>子组件一 -> 父组件：{{title}}</p>
+          </div>
       </el-row>
       <el-row>
         <div class="view-interval">
@@ -38,6 +40,11 @@
       <el-row type="flex" justify="center">
         <div class="view-interval">
           <el-button type="primary" @click="resetValue">重置</el-button>
+        </div>
+      </el-row>
+      <el-row type="flex" justify="center">
+        <div class="view-interval">
+          <p>父组件 -> 子组件一：重置点击{{ clearNames }}</p>
         </div>
       </el-row>
     </div>   
@@ -72,21 +79,7 @@ export default {
 </script>
 
 <style scoped>
-  .parent-view-content-wrap {
-    height: 300px;
-  }
-  .parent-view-title {
-    text-align: center;
-  }
-  .view-interval {
-    margin-top: 20px;
-  }
-  .child-view-content-wrap {
-    border: 1px solid #ddd;
-  }
-  .child-two-view {
-    margin-left: 20px;
-  }
+
 </style>
 
 

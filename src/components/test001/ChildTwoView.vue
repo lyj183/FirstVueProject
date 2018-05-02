@@ -6,7 +6,7 @@
     <el-form-item>
       <el-row type="flex" justify="center">
         <el-col :span="12">
-          <p>父组件->子组件： {{pickName1}}</p>
+          <p>父组件->子组件二： {{pickName1}}</p>
         </el-col>
       </el-row>
     </el-form-item>
@@ -14,7 +14,7 @@
     <el-form-item>
       <el-row type="flex" justify="center">
         <el-col :span="12">
-          <p>子组件->子组件： {{pickName2}}</p>
+          <p>子组件一->子组件二： {{pickName2}}</p>
         </el-col>
       </el-row>
     </el-form-item>

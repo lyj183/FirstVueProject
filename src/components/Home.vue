@@ -16,6 +16,7 @@
               <span slot="title">分组一（组件通讯）</span>
               <el-menu-item index="1-1-1">选项1-1-1</el-menu-item>
               <el-menu-item index="1-1-2">选项1-1-2</el-menu-item>
+              <el-menu-item index="1-1-3">选项1-1-3</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="分组二">
               <el-menu-item index="1-2-1">选项1-2-1</el-menu-item>
@@ -43,6 +44,9 @@
         <div v-if="indexPath[1]=='1-1-2'">
           <parent-slot-view></parent-slot-view>
         </div>
+        <div v-if="indexPath[1]=='1-1-3'">
+          <count-view></count-view>
+        </div>
       </el-col>
       <el-col :span="2">
         <div>
@@ -55,11 +59,13 @@
 <script>
 import parentView from './test001/ParentView.vue'
 import parentSlotView from './test002/ParentSlotView.vue'
+import countView from './test003/CountView.vue'
 export default {
   name: 'Home',
   components : {
     parentView,
-    parentSlotView
+    parentSlotView,
+    countView
   },
   data() {
     return {

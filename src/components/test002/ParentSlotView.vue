@@ -10,7 +10,7 @@
     <div class="parent-view-content-wrap view-interval child-two-view">
       <el-row class="child-view-content-wrap">
         <!-- 单个插槽 -->
-        <el-col :span="8">
+        <el-col :span="8" class="child-view-right-line">
           <h2>我是单个插槽父组件的标题</h2>
           <slot-view>
             <p>这是一些初始内容</p>
@@ -18,7 +18,7 @@
           </slot-view>
         </el-col>
         <!-- 具名插槽 -->
-        <el-col :span="8">
+        <el-col :span="8" class="child-view-right-line">
           <slot-name-view>
             <h2 slot="header">我是具名插槽父组件的标题</h2>
             <p>主要内容的一个段落。</p>
@@ -64,7 +64,10 @@ export default {
 </script>
 
 <style scoped>
-
+.child-view-right-line {
+  border-right: 1px solid #ddd;
+  height: 300px;
+}
 </style>
 
 

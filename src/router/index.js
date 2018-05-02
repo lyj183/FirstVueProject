@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import ParentView from '@/components/test001/ParentView'
 import ParentSlotView from '@/components/test002/ParentSlotView'
 import CountView from '@/components/test003/CountView'
+import EChartsView from '@/components/test004/EChartsView'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/TestView003',
       name: 'TestView003',
       component: CountView
+    },
+    {
+      path: '/TestView004',
+      name: 'TestView004',
+      component: EChartsView
     }
   ]
 })

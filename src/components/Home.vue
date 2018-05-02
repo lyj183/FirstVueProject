@@ -18,7 +18,7 @@
               <el-menu-item index="1-1-2">选项1-1-2</el-menu-item>
               <el-menu-item index="1-1-3">选项1-1-3</el-menu-item>
             </el-menu-item-group>
-            <el-menu-item-group title="分组二">
+            <el-menu-item-group title="分组二（ECHARTS）">
               <el-menu-item index="1-2-1">选项1-2-1</el-menu-item>
               <el-menu-item index="1-2-2">选项1-2-2</el-menu-item>
             </el-menu-item-group>
@@ -47,6 +47,9 @@
         <div v-if="indexPath[1]=='1-1-3'">
           <count-view></count-view>
         </div>
+        <div v-if="indexPath[1]=='1-2-1'">
+          <echarts-view></echarts-view>
+        </div>
       </el-col>
       <el-col :span="2">
         <div>
@@ -60,12 +63,14 @@
 import parentView from './test001/ParentView.vue'
 import parentSlotView from './test002/ParentSlotView.vue'
 import countView from './test003/CountView.vue'
+import echartsView from './test004/EChartsView.vue'
 export default {
   name: 'Home',
   components : {
     parentView,
     parentSlotView,
-    countView
+    countView,
+    echartsView
   },
   data() {
     return {

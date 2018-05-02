@@ -38,6 +38,9 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 Slot插件
 
 # Test003
-Store
+Vuex, Store
 参考：https://blog.csdn.net/zjq_1314520/article/details/79539966
+
+# Test004
+Echarts
 ```

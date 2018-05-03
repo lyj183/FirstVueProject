@@ -16,6 +16,7 @@
     "echarts": "^4.1.0",
     "element-ui": "2.3.6",
     "moment": "2.19.3",
+    "npm": "^6.0.0",
     "vue": "^2.5.2",
     "vue-echarts-v3": "^1.0.19",
     "vue-router": "^3.0.1",

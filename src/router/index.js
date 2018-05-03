@@ -5,6 +5,7 @@ import ParentView from '@/components/test001/ParentView'
 import ParentSlotView from '@/components/test002/ParentSlotView'
 import CountView from '@/components/test003/CountView'
 import EChartsView from '@/components/test004/EChartsView'
+import AsyncValidatorView from '@/components/test005/AsyncValidatorView'
 
 Vue.use(Router)
 
@@ -34,6 +35,12 @@ export default new Router({
       path: '/TestView004',
       name: 'TestView004',
       component: EChartsView
+    },
+    {
+      path: '/TestView005',
+      name: 'TestView005',
+      component: AsyncValidatorView
     }
+    
   ]
 })

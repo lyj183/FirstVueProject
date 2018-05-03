@@ -11,3 +11,9 @@
 .child-two-view {
   margin-left: 20px;
 }
+.input-view {
+  width: 300px;
+}
+.center-view {
+  text-align: center;
+}

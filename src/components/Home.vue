@@ -23,18 +23,36 @@
               <el-menu-item index="1-2-2">选项1-2-2</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
-          <el-menu-item index="2">
-            <i class="el-icon-menu"></i>
-            <span slot="title">导航二</span>
-          </el-menu-item>
-          <el-menu-item index="3">
-            <i class="el-icon-document"></i>
-            <span slot="title">导航三</span>
-          </el-menu-item>
-          <el-menu-item index="4">
-            <i class="el-icon-setting"></i>
-            <span slot="title">导航四</span>
-          </el-menu-item>
+          <el-submenu index="2">
+            <template slot="title">
+              <i class="el-icon-menu"></i>
+              <span slot="title">导航二</span>
+            </template>
+            <el-menu-item-group title="分组一（async-validator）">
+              <el-menu-item index="2-1-1">选项2-1-1</el-menu-item>
+              <el-menu-item index="2-1-2">选项2-1-2</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="3">
+            <template slot="title">
+              <i class="el-icon-document"></i>
+              <span slot="title">导航三</span>
+            </template>
+            <el-menu-item-group title="分组一">
+              <el-menu-item index="3-1-1">选项3-1-1</el-menu-item>
+              <el-menu-item index="3-1-2">选项3-1-2</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="4">
+            <template slot="title">
+              <i class="el-icon-menu"></i>
+              <span slot="el-icon-setting">导航四</span>
+            </template>
+            <el-menu-item-group title="分组一">
+              <el-menu-item index="4-1-1">选项4-1-1</el-menu-item>
+              <el-menu-item index="4-1-2">选项4-1-2</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
         </el-menu>
       </el-col>
       <el-col :span="18">
@@ -50,6 +68,9 @@
         <div v-if="indexPath[1]=='1-2-1'">
           <echarts-view></echarts-view>
         </div>
+        <div v-if="indexPath[1]=='2-1-1'">
+          <async-validator-view></async-validator-view>
+        </div>
       </el-col>
       <el-col :span="2">
         <div>
@@ -64,13 +85,15 @@ import parentView from './test001/ParentView.vue'
 import parentSlotView from './test002/ParentSlotView.vue'
 import countView from './test003/CountView.vue'
 import echartsView from './test004/EChartsView.vue'
+import asyncValidatorView from './test005/AsyncValidatorView.vue'
 export default {
   name: 'Home',
   components : {
     parentView,
     parentSlotView,
     countView,
-    echartsView
+    echartsView,
+    asyncValidatorView
   },
   data() {
     return {

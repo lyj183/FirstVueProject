@@ -38,6 +38,7 @@
           },
           tooltip: {},
           xAxis: {
+            // type: 'category',
             data: ['Shirt', 'Sweater', 'Chiffon Shirt', 'Pants', 'High Heels', 'Socks']
           },
           yAxis: {},

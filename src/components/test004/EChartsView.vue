@@ -29,24 +29,26 @@
     },
     props: {
     },
-    data: () => ({
+    data() {
+      return {
       loading: true,
-      bar: {
-        title: {
-          text: 'ECharts Hello World'
-        },
-        tooltip: {},
-        xAxis: {
-          data: ['Shirt', 'Sweater', 'Chiffon Shirt', 'Pants', 'High Heels', 'Socks']
-        },
-        yAxis: {},
-        series: [{
-          name: 'Sales',
-          type: 'bar',
-          data: [5, 20, 36, 10, 10, 20]
-        }]
+        bar: {
+          title: {
+            text: 'ECharts'
+          },
+          tooltip: {},
+          xAxis: {
+            data: ['Shirt', 'Sweater', 'Chiffon Shirt', 'Pants', 'High Heels', 'Socks']
+          },
+          yAxis: {},
+          series: [{
+            name: 'Sales',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+          }]
+        }
       }
-    }),
+    },
     methods: {
       doRandom() {
         const that = this;
@@ -69,7 +71,7 @@
 
 <style scoped>
   .echarts {
-    width: 400px;
+    width: 800px;
     height: 400px;
   }
 </style>

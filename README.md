@@ -43,4 +43,7 @@ Vuex, Store
 
 # Test004
 Echarts
+
+# Test005
+async-validator
 ```

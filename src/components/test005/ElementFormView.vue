@@ -3,40 +3,37 @@
     <div class="crumbs">
       <el-breadcrumb separator-class="el-icon-arrow-right">
           <el-breadcrumb-item :to="{ name: 'Home' }">Home</el-breadcrumb-item>
-          <el-breadcrumb-item :to="{ name: 'TestView005' }">TestT005</el-breadcrumb-item>
+          <el-breadcrumb-item :to="{ name: 'TestView006' }">TestT006</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div class="parent-view-content-wrap view-interval child-two-view">
-      <h1>async-validator</h1>
-      <div class="view-interval center-view">
-        <p>手机号码</p>
-        <el-input class="input-view" v-model="inputForm.mobile" placeholder="请输入手机号码"></el-input>
-      </div>
+      <h1>Element-Form-Validate</h1>
+      <el-form :model="inputForm" :rules="rules" ref="inputForm">
+        <el-form-item label="手机" prop="mobile">
+          <el-input class="input-view" v-model="inputForm.mobile" placeholder="请输入手机号码"></el-input>
+        </el-form-item>
 
-      <div class="view-interval center-view">
-        <p>身份证号码</p>
-        <el-input class="input-view" v-model="inputForm.id" placeholder="请输入身份证号码"></el-input>
-      </div>
+        <el-form-item label="身份证" prop="id">
+          <el-input class="input-view" v-model="inputForm.id" placeholder="请输入身份证号码"></el-input>
+        </el-form-item>
 
-      <div class="view-interval center-view">
-        <p>姓名</p>
-        <el-input class="input-view" v-model="inputForm.name" placeholder="请输入姓名"></el-input>
-      </div>
+        <el-form-item label="姓名" prop="name">
+          <el-input class="input-view" v-model="inputForm.name" placeholder="请输入姓名"></el-input>
+        </el-form-item>
 
+        <el-form-item label="Email" prop="email">
+          <el-input class="input-view" v-model="inputForm.email" placeholder="请输入Email"></el-input>
+        </el-form-item>
+      </el-form>
       <div class="view-interval center-view">
-        <p>Email</p>
-        <el-input class="input-view" v-model="inputForm.email" placeholder="请输入Email"></el-input>
-      </div>
-      <div class="view-interval center-view">
-        <el-button @click="submitForm">提交</el-button>
+        <el-button @click="submitForm('inputForm')">提交</el-button>
+        <el-button @click="resetForm('inputForm')">重置</el-button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import schema from 'async-validator' // 引入async-validator
-
 export default {
   data() {
     return {
@@ -44,7 +41,7 @@ export default {
         mobile: '',
         id: '',
         name: '',
-        email: '',
+        email: ''
       },
       rules: {
         mobile: [
@@ -89,47 +86,20 @@ export default {
     }
   },
   methods: {
-    submitForm() {
-      var validator = new schema(this.rules)
-      validator.validate(this.inputForm, (errors, fields) => {
-        if (errors) {
-          this.$message.error(errors[0])
+    submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('submit!')
         } else {
-          this.$message.success("成功")
+          this.$message.error('失败')
+          return false
         }
       })
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
     }
   }
+
 }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

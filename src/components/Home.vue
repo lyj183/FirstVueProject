@@ -6,7 +6,7 @@
           <el-radio-button :label="false">展开</el-radio-button>
           <el-radio-button :label="true">收起</el-radio-button>
         </el-radio-group>
-        <el-menu default-active="2-1-1" class="el-menu-vertical-demo" @select="handleSelect" :collapse="isCollapse">
+        <el-menu default-active="1-1-1" class="el-menu-vertical-demo" @select="handleSelect" :collapse="isCollapse">
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
@@ -71,6 +71,9 @@
         <div v-if="indexPath[1]=='2-1-1'">
           <async-validator-view></async-validator-view>
         </div>
+        <div v-if="indexPath[1]=='2-1-2'">
+          <elememt-form-view></elememt-form-view>
+        </div>
       </el-col>
       <el-col :span="2">
         <div>
@@ -81,11 +84,12 @@
 </template>
 
 <script>
-import parentView from './test001/ParentView.vue'
-import parentSlotView from './test002/ParentSlotView.vue'
-import countView from './test003/CountView.vue'
-import echartsView from './test004/EChartsView.vue'
-import asyncValidatorView from './test005/AsyncValidatorView.vue'
+import parentView from './test001/ParentView'
+import parentSlotView from './test002/ParentSlotView'
+import countView from './test003/CountView'
+import echartsView from './test004/EChartsView'
+import asyncValidatorView from './test005/AsyncValidatorView'
+import elememtFormView from './test005/ElementFormView'
 export default {
   name: 'Home',
   components : {
@@ -93,7 +97,8 @@ export default {
     parentSlotView,
     countView,
     echartsView,
-    asyncValidatorView
+    asyncValidatorView,
+    elememtFormView
   },
   data() {
     return {

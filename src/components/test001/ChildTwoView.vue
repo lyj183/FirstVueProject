@@ -45,7 +45,7 @@ export default {
         console.log("pickName1空啦！！！！！");
       }
     },
-  },
+  }
 }
 </script>
 

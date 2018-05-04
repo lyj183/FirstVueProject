@@ -6,7 +6,7 @@
           <el-radio-button :label="false">展开</el-radio-button>
           <el-radio-button :label="true">收起</el-radio-button>
         </el-radio-group>
-        <el-menu default-active="1-1-1" class="el-menu-vertical-demo" @select="handleSelect" :collapse="isCollapse">
+        <el-menu default-active="2-1-1" class="el-menu-vertical-demo" @select="handleSelect" :collapse="isCollapse">
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
@@ -28,7 +28,7 @@
               <i class="el-icon-menu"></i>
               <span slot="title">导航二</span>
             </template>
-            <el-menu-item-group title="分组一（async-validator）">
+            <el-menu-item-group title="分组一（输入验证）">
               <el-menu-item index="2-1-1">选项2-1-1</el-menu-item>
               <el-menu-item index="2-1-2">选项2-1-2</el-menu-item>
             </el-menu-item-group>

@@ -45,5 +45,10 @@ Vuex, Store
 Echarts
 
 # Test005
-async-validator
+Async-validator
+ElementForm-validator
+
+# Test006
+Dialog 正确打开弹窗
+参考：https://blog.csdn.net/qq_33594380/article/details/79670400
 ```

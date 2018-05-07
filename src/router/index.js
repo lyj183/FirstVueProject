@@ -7,6 +7,7 @@ import CountView from '@/components/test003/CountView'
 import EChartsView from '@/components/test004/EChartsView'
 import AsyncValidatorView from '@/components/test005/AsyncValidatorView'
 import ElementFormView from '@/components/test005/ElementFormView'
+import DialogContentView from '@/components/test006/DialogContentView'
 
 Vue.use(Router)
 
@@ -38,14 +39,20 @@ export default new Router({
       component: EChartsView
     },
     {
-      path: '/TestView005',
-      name: 'TestView005',
+      path: '/TestView005-1',
+      name: 'TestView005-1',
       component: AsyncValidatorView
+    },
+    {
+      path: '/TestView005-2',
+      name: 'TestView005-2',
+      component: ElementFormView
     },
     {
       path: '/TestView006',
       name: 'TestView006',
-      component: ElementFormView
+      component: DialogContentView
     }
+    
   ]
 })

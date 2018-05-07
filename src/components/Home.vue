@@ -74,6 +74,9 @@
         <div v-if="indexPath[1]=='2-1-2'">
           <elememt-form-view></elememt-form-view>
         </div>
+        <div v-if="indexPath[1]=='3-1-1'">
+          <dialog-content-view></dialog-content-view>
+        </div>
       </el-col>
       <el-col :span="2">
         <div>
@@ -90,6 +93,7 @@ import countView from './test003/CountView'
 import echartsView from './test004/EChartsView'
 import asyncValidatorView from './test005/AsyncValidatorView'
 import elememtFormView from './test005/ElementFormView'
+import dialogContentView from './test006/DialogContentView'
 export default {
   name: 'Home',
   components : {
@@ -98,7 +102,8 @@ export default {
     countView,
     echartsView,
     asyncValidatorView,
-    elememtFormView
+    elememtFormView,
+    dialogContentView
   },
   data() {
     return {

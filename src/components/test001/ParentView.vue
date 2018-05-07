@@ -2,7 +2,7 @@
 <template>
   <div class="parent-view" ref="parentView">
     <div class="crumbs">
-        <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb separator-class="el-icon-arrow-right" class="crumbs">
             <el-breadcrumb-item :to="{ name: 'Home' }">Home</el-breadcrumb-item>
             <el-breadcrumb-item :to="{ name: 'TestView001' }">TestT001</el-breadcrumb-item>
         </el-breadcrumb>
@@ -66,8 +66,8 @@ export default {
     }
   },
   methods: {
-    changeName(formName1) {
-      this.title = formName1;
+    changeName(val) {
+      this.title = val;
     },
     resetValue() {
       console.log('进入父')

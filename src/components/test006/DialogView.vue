@@ -425,9 +425,22 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less">
+// 这里之所以引入less，是因为用scoped，无效；但去掉scoped会造成影响全局的状况
+// 因此解决办法是使用less语法，并去掉scoped
+// 安装less的方法：
+// 1、npm install less less-loader --save
+// 2、在webpack.base.conf.js中添加配置
+/*
+   {
+      test: /\.less$/,
+      loader: "style-loader!css-loader!less-loader",
+   }
+*/
 .dialog-view {
-  height: 300px;
-  overflow-y: scroll;
+  .el-dialog__body {
+    height: 300px;
+    overflow-y: scroll;
+  }
 }
 </style>

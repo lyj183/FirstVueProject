@@ -3,386 +3,20 @@
   <el-dialog
     title="提示"
     :visible.sync="showThis"
-    size="small"
     :center="true">
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
-    <span>这是一段信息</span>
+    <div>
+      <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tab-pane label="全部分类" name="first"></el-tab-pane>
+        <!-- <el-tab-pane label="基础属性" name="second"></el-tab-pane>
+        <el-tab-pane label="生活属性" name="third"></el-tab-pane>
+        <el-tab-pane label="外部标签" name="fourth"></el-tab-pane>
+        <el-tab-pane label="动态标签" name="fifth"></el-tab-pane> -->
+        <el-tab-pane v-for="(item, index) in tagData" :key="index" :label="item.tagSuperGroupName" :name="item.tagSuperGroupName"></el-tab-pane>
+      </el-tabs>
+    </div>
+    <div>
+      dddddd
+    </div>
     <span slot="footer" class="dialog-footer">
       <el-button @click="closeDialogView">取 消</el-button>
       <el-button type="primary" @click="closeDialogView">确 定</el-button>
@@ -392,29 +26,39 @@
 </template>
 
 <script>
+// 引入mock数据
+import mock from'../../../static/mock/data.js'
 export default {
   props: {
     show: {type: Boolean} // 父组件传递过来的开启指令
   },
   data() {
     return {
-      showThis: null
+      showThis: null,
+      activeName: 'first',
+      tagData: []
+    }
+  },
+  mounted() {
+    // 挂载组件时，将父元素传来的值赋值给变量
+    this.showThis = this.isShowDialog;
+    
+    // 加载mock数据
+    if(mock.status == "200") {
+      this.tagData = mock.data;
     }
   },
   methods: {
-    // 挂载组建时，将父元素传来的值赋值给变量
-    mounted() {
-      this.showThis = this.isShowDialog
-    },
     closeDialogView() {
       // 改变show的值
       this.showThis = false;
+    },
+    handleClick(tab, event) {
+      console.log(tab, event);
     }
   },
   watch: {
     showThis(newV, oldV) {
-      console.log("newV: " + newV)
-      console.log("oldV: " + oldV)
       // 告诉父元素改变show的值
       this.$emit('closeDialog', newV)
     },

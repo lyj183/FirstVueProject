@@ -10,8 +10,7 @@
       <h1>Dialog</h1>
       <div class="center-view">
         <p>姓名：{{name}}</p>
-        <p>性别：{{gender}}</p>
-        <el-button type="primary" @click="openDialogView">打开对话框</el-button>
+        <el-button type="primary" @click="openDialogView">选择标签</el-button>
         <dialog-view @closeDialog="closeDialog" :show="dialogVisiable" ></dialog-view>
       </div>
     </div>
@@ -36,7 +35,6 @@ export default {
       this.dialogVisiable = true
     },
     closeDialog(val) {
-      console.log("val: " + val)
       this.dialogVisiable = val
     }
 

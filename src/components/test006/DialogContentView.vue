@@ -6,7 +6,7 @@
           <el-breadcrumb-item :to="{ name: 'TestView006' }">TestT006</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
-    <div class="parent-view-content-wrap view-interval child-two-view">
+    <div class="view-interval child-two-view">
       <h1>Dialog</h1>
       <div class="center-view">
         <p>姓名：{{name}}</p>

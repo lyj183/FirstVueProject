@@ -1,21 +1,32 @@
 <template>
 <div class="dialog-view">
   <el-dialog
-    title="提示"
+    title="选择标签"
     :visible.sync="showThis"
     :center="true">
     <div>
       <el-tabs v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane label="全部分类" name="first"></el-tab-pane>
-        <!-- <el-tab-pane label="基础属性" name="second"></el-tab-pane>
-        <el-tab-pane label="生活属性" name="third"></el-tab-pane>
-        <el-tab-pane label="外部标签" name="fourth"></el-tab-pane>
-        <el-tab-pane label="动态标签" name="fifth"></el-tab-pane> -->
-        <el-tab-pane v-for="(item, index) in tagData" :key="index" :label="item.tagSuperGroupName" :name="item.tagSuperGroupName"></el-tab-pane>
+        <el-tab-pane label="全部分类" name="全部分类"></el-tab-pane>
+        <!-- 动态添加el-tab-pane -->
+        <el-tab-pane v-for="(itemType, itemTypeIndex) in tagData" :key="itemTypeIndex" :label="itemType.tagSuperGroupName" :name="itemType.tagSuperGroupName"></el-tab-pane>
       </el-tabs>
     </div>
-    <div>
-      dddddd
+    <div class="tag-type-wrap"> 
+      <div v-for="(itemType, itemTypeIndex) in tagData" :key="itemTypeIndex">
+        <span style="color: red">{{itemType.tagSuperGroupName}}</span>
+        <div>
+          <el-form v-for="(itemTag, itemTagIndex) in itemType.tagGroupDTOList" :key="itemTagIndex" label-position="right" label-width="100px">
+            <el-form-item :label="itemTag.groupName">
+              <span
+                v-for="(item, itemIndex) in itemTag.tagDTOList" 
+                :key="itemIndex" 
+                @click="selectTags(item)"
+                :class="[item.tagName.length < 6 ? 'item-tag-wrap' : 'item-tag-wrap-big', 
+                        (selectedTags.tags.tagCodes).indexOf(item.tagCode) > -1 ? 'on' : '']">{{item.tagName}}</span>
+            </el-form-item>
+          </el-form>
+        </div>
+      </div>
     </div>
     <span slot="footer" class="dialog-footer">
       <el-button @click="closeDialogView">取 消</el-button>
@@ -35,8 +46,15 @@ export default {
   data() {
     return {
       showThis: null,
-      activeName: 'first',
-      tagData: []
+      activeName: '全部分类',
+      tagData: [], 
+      selectedTags: {
+        typeName:'',
+        tags: {
+          tagCodes: [],
+          tagNames: []
+        }
+      }
     }
   },
   mounted() {
@@ -55,6 +73,18 @@ export default {
     },
     handleClick(tab, event) {
       console.log(tab, event);
+    },
+
+    selectTags(tag) {
+      // 存在->删除; 不存在->添加
+      if((this.selectedTags.tags.tagCodes).indexOf(tag.tagCode) > -1) {
+          var index = (this.selectedTags.tags.tagCodes).indexOf(tag.tagCode);
+          (this.selectedTags.tags.tagCodes).splice(index, 1)
+          (this.selectedTags.tags.tagNames).splice(index, 1)
+      } else {
+          (this.selectedTags.tags.tagCodes).push(tag.tagCode)
+          (this.selectedTags.tags.tagNames).push(tag.tagName)
+      }
     }
   },
   watch: {
@@ -81,10 +111,53 @@ export default {
       loader: "style-loader!css-loader!less-loader",
    }
 */
+// 3、根据需求改为tag-type-wrap这个div做overflow-y: scroll
 .dialog-view {
-  .el-dialog__body {
+  // .el-dialog__body {
+  //   height: 300px;
+  //   overflow-y: scroll;
+  // }
+  .tag-type-wrap {
     height: 300px;
     overflow-y: scroll;
+    // 文字按钮包裹
+    .item-tag-wrap {
+      display: inline-block;
+      width: 108px;
+      height: 34px;
+      line-height: 34px;
+      margin:-7px 20px 20px 0;
+      text-align: center;
+      cursor: pointer;
+      color: black;
+      background-color: #fff;
+      border: 1px solid #d4dce5;
+      border-radius: 5px;
+    }
+    .item-tag-wrap-big {
+      display: inline-block;
+      width: 208px;
+      height: 34px;
+      line-height: 34px;
+      margin:-7px 20px 20px 0;
+      text-align: center;
+      cursor: pointer;
+      color: black;
+      background-color: #fff;
+      border: 1px solid #d4dce5;
+      border-radius: 5px;
+    }
+    .item-tag-wrap.on {
+      background-color: #E9F6FF;
+      color:#58B7FF;
+      border: 1px solid #58B7FF;
+    }
+    .item-tag-wrap-big.on {
+      background-color: #E9F6FF;
+      color:#58B7FF;
+      border: 1px solid #58B7FF;
+    }
+
   }
 }
 </style>

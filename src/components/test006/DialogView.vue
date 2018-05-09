@@ -3,12 +3,14 @@
   <el-dialog
     title="选择标签"
     :visible.sync="showThis"
-    :center="true">
+    :center="true"
+    @close="closeDialogView"
+    @open="openDialogView">
     <div>
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="全部分类" name="全部分类"></el-tab-pane>
         <!-- 动态添加el-tab-pane -->
-        <el-tab-pane v-for="(itemType, itemTypeIndex) in tagData" :key="itemTypeIndex" :label="itemType.tagSuperGroupName" :name="itemType.tagSuperGroupName"></el-tab-pane>
+        <el-tab-pane v-for="(itemType, itemTypeIndex) in cachedTagData" :key="itemTypeIndex" :label="itemType.tagSuperGroupName" :name="itemType.tagSuperGroupName"></el-tab-pane>
       </el-tabs>
     </div>
     <div class="tag-type-wrap"> 
@@ -21,8 +23,8 @@
                 v-for="(item, itemIndex) in itemTag.tagDTOList" 
                 :key="itemIndex" 
                 @click="selectTags(item)"
-                :class="[item.tagName.length < 6 ? 'item-tag-wrap' : 'item-tag-wrap-big', 
-                        (selectedTags.tags.tagCodes).indexOf(item.tagCode) > -1 ? 'on' : '']">{{item.tagName}}</span>
+                :class="[item.tagName.length < 6 ? 'item-tag-wrap' : 'item-tag-wrap big', 
+                        selectedTags.tags.tagCodes.indexOf(item.tagCode) > -1 ? 'on' : '']">{{item.tagName}}</span>
             </el-form-item>
           </el-form>
         </div>
@@ -30,7 +32,7 @@
     </div>
     <span slot="footer" class="dialog-footer">
       <el-button @click="closeDialogView">取 消</el-button>
-      <el-button type="primary" @click="closeDialogView">确 定</el-button>
+      <el-button type="primary" @click="conformDialogView">确 定</el-button>
     </span>
   </el-dialog>
 </div>
@@ -41,7 +43,8 @@
 import mock from'../../../static/mock/data.js'
 export default {
   props: {
-    show: {type: Boolean} // 父组件传递过来的开启指令
+    show: {type: Boolean}, // 父组件传递过来的开启指令
+    preSelectedTags: {type: Object} // 父组件传递过来的预设Tags
   },
   data() {
     return {
@@ -54,37 +57,74 @@ export default {
           tagCodes: [],
           tagNames: []
         }
-      }
+      },
+      cachedTagData: [] // 缓存数据（如果是从服务器请求的情况下）
     }
   },
   mounted() {
     // 挂载组件时，将父元素传来的值赋值给变量
-    this.showThis = this.isShowDialog;
+    this.showThis = this.show;
     
     // 加载mock数据
     if(mock.status == "200") {
-      this.tagData = mock.data;
+      this.cachedTagData = JSON.parse(JSON.stringify(mock.data));
+      if(this.activeName == '全部分类') {
+        this.tagData = JSON.parse(JSON.stringify(this.cachedTagData));
+      }
     }
+
+    // 挂载组件时，将父元素传来的Tags值给变量
+    this.selectedTags = JSON.parse(JSON.stringify(this.preSelectedTags));
   },
   methods: {
-    closeDialogView() {
-      // 改变show的值
-      this.showThis = false;
+    openDialogView() {
+      // 开启时，回顶端，这里必须添加延时，否则会报错
+      setTimeout(function(){
+        document.querySelector('.tag-type-wrap').scrollTop = 0;
+      }, 30);
     },
     handleClick(tab, event) {
-      console.log(tab, event);
+      if(this.activeName == '全部分类') {
+        this.tagData = JSON.parse(JSON.stringify(this.cachedTagData));
+      } else {
+          this.cachedTagData.forEach(element => {
+            if(element.tagSuperGroupName == this.activeName) {
+              this.tagData = [];
+              this.tagData[0] = element;
+            }
+          });
+      }
+      // 回顶端
+      document.querySelector('.tag-type-wrap').scrollTop = 0;
     },
+            handleTabClick(tab) {
+            this.changeTab(tab.name);
+            this.getPutCouponList();
+        },
 
+    closeDialogView() {
+      // 改变show的值，以便watch通知父组件
+      this.showThis = false;
+
+      // 从缓存数据恢复tags
+      this.selectedTags = this.preSelectedTags
+    },
+    conformDialogView() {
+      // 传递给父组件，selectedTags的值
+      this.$emit('changeTags', this.selectedTags);
+      // 改变show的值，以便watch通知父组件
+      this.showThis = false;
+    },
     selectTags(tag) {
       // 存在->删除; 不存在->添加
-      if((this.selectedTags.tags.tagCodes).indexOf(tag.tagCode) > -1) {
-          var index = (this.selectedTags.tags.tagCodes).indexOf(tag.tagCode);
-          (this.selectedTags.tags.tagCodes).splice(index, 1)
-          (this.selectedTags.tags.tagNames).splice(index, 1)
+      if(this.selectedTags.tags.tagCodes.indexOf(tag.tagCode) > -1) {
+        var index = this.selectedTags.tags.tagCodes.indexOf(tag.tagCode);
+        this.selectedTags.tags.tagCodes.splice(index, 1)
+        this.selectedTags.tags.tagNames.splice(index, 1)
       } else {
-          (this.selectedTags.tags.tagCodes).push(tag.tagCode)
-          (this.selectedTags.tags.tagNames).push(tag.tagName)
-      }
+        this.selectedTags.tags.tagCodes.push(tag.tagCode)
+        this.selectedTags.tags.tagNames.push(tag.tagName)
+      }     
     }
   },
   watch: {
@@ -134,30 +174,14 @@ export default {
       border: 1px solid #d4dce5;
       border-radius: 5px;
     }
-    .item-tag-wrap-big {
-      display: inline-block;
+    .big {
       width: 208px;
-      height: 34px;
-      line-height: 34px;
-      margin:-7px 20px 20px 0;
-      text-align: center;
-      cursor: pointer;
-      color: black;
-      background-color: #fff;
-      border: 1px solid #d4dce5;
-      border-radius: 5px;
     }
-    .item-tag-wrap.on {
+    .on {
       background-color: #E9F6FF;
       color:#58B7FF;
       border: 1px solid #58B7FF;
     }
-    .item-tag-wrap-big.on {
-      background-color: #E9F6FF;
-      color:#58B7FF;
-      border: 1px solid #58B7FF;
-    }
-
   }
 }
 </style>

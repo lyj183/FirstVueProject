@@ -7,15 +7,16 @@
     @close="closeDialogView"
     @open="openDialogView">
     <div>
-      <el-tabs v-model="activeName" @tab-click="handleClick">
+      <el-tabs v-model="activeName" @tab-click="handleTabClick">
         <el-tab-pane label="全部分类" name="全部分类"></el-tab-pane>
         <!-- 动态添加el-tab-pane -->
         <el-tab-pane v-for="(itemType, itemTypeIndex) in cachedTagData" :key="itemTypeIndex" :label="itemType.tagSuperGroupName" :name="itemType.tagSuperGroupName"></el-tab-pane>
       </el-tabs>
     </div>
-    <div class="tag-type-wrap"> 
+    <!-- 监听@scroll 滚动出现向上按钮 -->
+    <div class="tag-type-wrap" @scroll="onScroll"> 
       <div v-for="(itemType, itemTypeIndex) in tagData" :key="itemTypeIndex">
-        <span style="color: red">{{itemType.tagSuperGroupName}}</span>
+        <span style="color: #58B7FF">{{itemType.tagSuperGroupName}}</span>
         <div>
           <el-form v-for="(itemTag, itemTagIndex) in itemType.tagGroupDTOList" :key="itemTagIndex" label-position="right" label-width="100px">
             <el-form-item :label="itemTag.groupName">
@@ -29,12 +30,17 @@
           </el-form>
         </div>
       </div>
+      <!-- 加入渐入渐出效果 -->
+      <transition name="el-fade-in">
+        <i class="el-icon-upload2" @click="scrollTop" v-show="showGotoTopButten"></i>
+      </transition>
     </div>
     <span slot="footer" class="dialog-footer">
       <el-button @click="closeDialogView">取 消</el-button>
       <el-button type="primary" @click="conformDialogView">确 定</el-button>
     </span>
   </el-dialog>
+
 </div>
 </template>
 
@@ -49,6 +55,7 @@ export default {
   data() {
     return {
       showThis: null,
+      showGotoTopButten: false,
       activeName: '全部分类',
       tagData: [], 
       selectedTags: {   // 点选的标签数据，1、用来和展示数据比较，以便不同的展现；2、提交给父组件
@@ -83,7 +90,7 @@ export default {
         document.querySelector('.tag-type-wrap').scrollTop = 0;
       }, 30);
     },
-    handleClick(tab, event) {
+    handleTabClick(tab, event) {
       if(this.activeName == '全部分类') {
         this.tagData = JSON.parse(JSON.stringify(this.cachedTagData));
       } else {
@@ -97,16 +104,11 @@ export default {
       // 回顶端
       document.querySelector('.tag-type-wrap').scrollTop = 0;
     },
-            handleTabClick(tab) {
-            this.changeTab(tab.name);
-            this.getPutCouponList();
-        },
-
     closeDialogView() {
       // 改变show的值，以便watch通知父组件
       this.showThis = false;
 
-      // 从缓存数据恢复tags
+      // 从缓存数据恢复原有的标签
       this.selectedTags = this.preSelectedTags
     },
     conformDialogView() {
@@ -125,6 +127,19 @@ export default {
         this.selectedTags.tags.tagCodes.push(tag.tagCode)
         this.selectedTags.tags.tagNames.push(tag.tagName)
       }     
+    },
+    onScroll() {
+      // 监听div的scroll事件 , 用dom.scrollTop这个属性
+      let offset = document.querySelector('.tag-type-wrap').scrollTop
+      console.log(offset)
+      if(offset > 300) {
+        this.showGotoTopButten = true;
+      } else {
+        this.showGotoTopButten = false;
+      }
+    },
+    scrollTop() {
+      document.querySelector('.tag-type-wrap').scrollTop = 0;
     }
   },
   watch: {
@@ -157,6 +172,7 @@ export default {
   //   height: 300px;
   //   overflow-y: scroll;
   // }
+  position: relative; // 父视图设为relative，以便定位悬浮按钮
   .tag-type-wrap {
     height: 300px;
     overflow-y: scroll;
@@ -182,6 +198,19 @@ export default {
       color:#58B7FF;
       border: 1px solid #58B7FF;
     }
+    .el-icon-upload2 {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      border: 1px solid #58B7FF;
+      border-radius: 5px;
+      position: absolute; // 子视图设为absolute，定位悬浮按钮
+      // position: fixed; // 如果在整个窗口，用这个
+      right: 40px;
+      bottom: 40%;
+    } 
   }
 }
 </style>

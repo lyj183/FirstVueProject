@@ -16,7 +16,7 @@
     <!-- 监听@scroll 滚动出现向上按钮 -->
     <div class="tag-type-wrap" @scroll="onScroll"> 
       <div v-for="(itemType, itemTypeIndex) in tagData" :key="itemTypeIndex">
-        <span style="color: #58B7FF">{{itemType.tagSuperGroupName}}</span>
+        <span class="tag-title">{{itemType.tagSuperGroupName}}</span>
         <div>
           <el-form v-for="(itemTag, itemTagIndex) in itemType.tagGroupDTOList" :key="itemTagIndex" label-position="right" label-width="100px">
             <el-form-item :label="itemTag.groupName">
@@ -131,7 +131,7 @@ export default {
     onScroll() {
       // 监听div的scroll事件 , 用dom.scrollTop这个属性
       let offset = document.querySelector('.tag-type-wrap').scrollTop
-      console.log(offset)
+      // console.log(offset)
       if(offset > 300) {
         this.showGotoTopButten = true;
       } else {
@@ -176,6 +176,9 @@ export default {
   .tag-type-wrap {
     height: 300px;
     overflow-y: scroll;
+    .tag-title {
+     color: #58B7FF;
+    }
     // 文字按钮包裹
     .item-tag-wrap {
       display: inline-block;

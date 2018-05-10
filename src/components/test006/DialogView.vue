@@ -40,7 +40,7 @@
 
 <script>
 // 引入mock数据
-import mock from'../../../static/mock/data.js'
+import mock from'../../../static/mock/data001.js'
 export default {
   props: {
     show: {type: Boolean}, // 父组件传递过来的开启指令
@@ -51,7 +51,7 @@ export default {
       showThis: null,
       activeName: '全部分类',
       tagData: [], 
-      selectedTags: {
+      selectedTags: {   // 点选的标签数据，1、用来和展示数据比较，以便不同的展现；2、提交给父组件
         typeName:'',
         tags: {
           tagCodes: [],

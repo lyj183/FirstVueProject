@@ -38,7 +38,7 @@
               <i class="el-icon-document"></i>
               <span slot="title">导航三</span>
             </template>
-            <el-menu-item-group title="分组一">
+            <el-menu-item-group title="分组一（弹窗）">
               <el-menu-item index="3-1-1">选项3-1-1</el-menu-item>
               <el-menu-item index="3-1-2">选项3-1-2</el-menu-item>
             </el-menu-item-group>
@@ -48,7 +48,7 @@
               <i class="el-icon-menu"></i>
               <span slot="el-icon-setting">导航四</span>
             </template>
-            <el-menu-item-group title="分组一">
+            <el-menu-item-group title="分组一（VueApi）">
               <el-menu-item index="4-1-1">选项4-1-1</el-menu-item>
               <el-menu-item index="4-1-2">选项4-1-2</el-menu-item>
             </el-menu-item-group>
@@ -77,6 +77,9 @@
         <div v-if="indexPath[1]=='3-1-1'">
           <dialog-content-view></dialog-content-view>
         </div>
+        <div v-if="indexPath[1]=='4-1-1'">
+          <vue-api-exercise-view></vue-api-exercise-view>
+        </div>
       </el-col>
       <el-col :span="2">
         <div>
@@ -94,6 +97,7 @@ import echartsView from './test004/EChartsView'
 import asyncValidatorView from './test005/AsyncValidatorView'
 import elememtFormView from './test005/ElementFormView'
 import dialogContentView from './test006/DialogContentView'
+import vueApiExerciseView from './test007/VueApiExerciseView'
 export default {
   name: 'Home',
   components : {
@@ -103,7 +107,8 @@ export default {
     echartsView,
     asyncValidatorView,
     elememtFormView,
-    dialogContentView
+    dialogContentView,
+    vueApiExerciseView
   },
   data() {
     return {

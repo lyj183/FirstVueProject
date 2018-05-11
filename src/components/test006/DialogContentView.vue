@@ -20,6 +20,7 @@
                 {{ tag }}
         </el-tag>
       </div>
+      <el-button @click="openMessageBox" class="view-interval">Message Box</el-button>
     </div>
   </div>
 </template>
@@ -57,6 +58,17 @@ export default {
     handleClose(tagIndex) {
       this.cachedTags.tags.tagCodes.splice(tagIndex, 1);
       this.cachedTags.tags.tagNames.splice(tagIndex, 1); 
+    },
+    openMessageBox() {
+      this.$alert('这是一段内容', '标题名称', {
+        confirmButtonText: '确定',
+        callback: action => {
+          this.$message({
+            type: 'info',
+            message: `action: ${ action }`
+          });
+        }
+      });
     }
   }
 }

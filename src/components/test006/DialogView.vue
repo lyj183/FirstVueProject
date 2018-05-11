@@ -154,7 +154,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" >
 // 这里之所以引入less，是因为用scoped，无效；但去掉scoped会造成影响全局的状况
 // 因此解决办法是使用less语法，并去掉scoped
 // 安装less的方法：
@@ -177,7 +177,7 @@ export default {
     height: 300px;
     overflow-y: scroll;
     .tag-title {
-     color: #58B7FF;
+     color: #409EFF;
     }
     // 文字按钮包裹
     .item-tag-wrap {
@@ -198,8 +198,8 @@ export default {
     }
     .on {
       background-color: #E9F6FF;
-      color:#58B7FF;
-      border: 1px solid #58B7FF;
+      color:#409EFF;
+      border: 1px solid #409EFF;
     }
     .el-icon-upload2 {
       display: inline-block;
@@ -207,7 +207,7 @@ export default {
       height: 20px;
       line-height: 20px;
       text-align: center;
-      border: 1px solid #58B7FF;
+      border: 1px solid #409EFF;
       border-radius: 5px;
       position: absolute; // 子视图设为absolute，定位悬浮按钮
       // position: fixed; // 如果在整个窗口，用这个

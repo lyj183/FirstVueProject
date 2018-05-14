@@ -1,7 +1,7 @@
 <template>
   <div class="parent-view" ref="parentView">
     <div class="crumbs">
-      <el-breadcrumb separator-class="el-icon-arrow-right">
+      <el-breadcrumb separator-class="el-icon-d-arrow-right">
           <el-breadcrumb-item :to="{ name: 'Home' }">Home</el-breadcrumb-item>
           <el-breadcrumb-item :to="{ name: 'TestView005-2' }">TestT005-2</el-breadcrumb-item>
       </el-breadcrumb>

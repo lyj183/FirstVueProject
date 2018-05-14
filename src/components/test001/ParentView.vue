@@ -23,9 +23,9 @@
           <el-col :span="12">
             <div class="child-view-content-wrap">
               <h2>子组件一：发送</h2>
-              <!-- 子组件一输入时，父组件接收，（@changeFormNameOne="changeName" :form-name1="title"），:form-name1可以随意命名 -->
+              <!-- 子组件一输入时，父组件接收，（@changeFormNameOne="changeName"） -->
               <!-- 父组件重置时，向子组件一发送，（:reset-name="clearPickNames"） -->
-              <child-one-view @changeFormNameOne="changeName" :form-name1="title" :reset-names="clearNames"></child-one-view>
+              <child-one-view @changeFormNameOne="changeName" :reset-names="clearNames"></child-one-view>
             </div>
           </el-col>
           <el-col :span="12">

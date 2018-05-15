@@ -41,9 +41,19 @@ export default {
   methods: {
     removeLocalStorage() {
       localStorage.removeItem('LYJ_FIRSTVUE_TEST007_INPUT');
-      window.location.href="http://localhost:8080";
+      // window.location.href="http://localhost:8080";
       // 如果全部清除用：
       // localStorage.clear();
+
+      // 罗列所有localStorage内容
+      /*
+      for(var i=0; i<localStorage.length; i++)   {
+        var getKey=localStorage.key(i);  
+        var getVal=localStorage.getItem(getKey);  
+        let array=getVal.split(",");  
+        console.log(array)
+      } 
+      */
     }
 
   },

@@ -7,7 +7,8 @@
       </el-breadcrumb>
     </div>
     <div class="view-interval child-two-view">
-      <h1>VueApiExercise</h1>
+      <h1>vue-html5-editor</h1>
+      <vue-html5-editor :content="content" :height="500"></vue-html5-editor>
     </div>
   </div>
 </template>
@@ -18,6 +19,7 @@ export default {
   },
   data() {
     return {
+      content: ''
     }
   },
   methods: {

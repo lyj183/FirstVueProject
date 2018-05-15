@@ -7,11 +7,14 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import '../static/css/common.css' // 引入公用css
 import store from './store/store' // 引入store
+import VueHtml5Editor from 'vue-html5-editor'
+import config from '../static/config/fontawesome-config.js'
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 Vue.use(ElementUI);
+Vue.use(VueHtml5Editor, config.options)
 
 new Vue({
   el: '#app',

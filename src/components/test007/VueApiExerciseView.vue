@@ -21,6 +21,9 @@
         <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
         <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
       </el-upload>
+      <el-input v-model="input" placeholder="请输入名称" style="width: 300px"></el-input>
+      <p>名称： {{output}}</p>
+      <el-button @click="removeLocalStorage">清除localStorage</el-button>
     </div>
   </div>
 </template>
@@ -31,10 +34,27 @@ export default {
   },
   data() {
     return {
-      content: ''
+      content: '',
+      input: '',
     }
   },
   methods: {
+    removeLocalStorage() {
+      localStorage.removeItem('LYJ_FIRSTVUE_TEST007_INPUT');
+      window.location.href="http://localhost:8080"
+    }
+
+  },
+  watch: {
+    input() {
+      // 名称存入LocalStorage
+      localStorage.setItem('LYJ_FIRSTVUE_TEST007_INPUT', this.input)
+    }
+  },
+  computed: {
+    output() {
+      return localStorage.getItem('LYJ_FIRSTVUE_TEST007_INPUT') ? localStorage.getItem('LYJ_FIRSTVUE_TEST007_INPUT') : ''
+    }
   }
 }
 </script>

@@ -23,7 +23,7 @@
       </el-upload>
       <el-input v-model="input" placeholder="请输入名称" style="width: 300px"></el-input>
       <p>名称： {{output}}</p>
-      <el-button @click="removeLocalStorage">清除localStorage</el-button>
+      <el-button @click="removeLocalStorage">清除名称localStorage</el-button>
     </div>
   </div>
 </template>
@@ -41,7 +41,9 @@ export default {
   methods: {
     removeLocalStorage() {
       localStorage.removeItem('LYJ_FIRSTVUE_TEST007_INPUT');
-      window.location.href="http://localhost:8080"
+      window.location.href="http://localhost:8080";
+      // 如果全部清除用：
+      // localStorage.clear();
     }
 
   },

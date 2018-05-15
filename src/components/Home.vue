@@ -48,7 +48,7 @@
               <i class="el-icon-menu"></i>
               <span slot="el-icon-setting">导航四</span>
             </template>
-            <el-menu-item-group title="分组一（VueApi）">
+            <el-menu-item-group title="分组一（工具）">
               <el-menu-item index="4-1-1">选项4-1-1</el-menu-item>
               <el-menu-item index="4-1-2">选项4-1-2</el-menu-item>
             </el-menu-item-group>

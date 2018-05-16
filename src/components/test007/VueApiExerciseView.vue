@@ -64,9 +64,10 @@ export default {
     }
   },
   computed: {
-    output() {
-      return localStorage.getItem('LYJ_FIRSTVUE_TEST007_INPUT') ? localStorage.getItem('LYJ_FIRSTVUE_TEST007_INPUT') : ''
-    }
+    // output() {
+    //   return localStorage.getItem('LYJ_FIRSTVUE_TEST007_INPUT') ? localStorage.getItem('LYJ_FIRSTVUE_TEST007_INPUT') : ''
+    // }
+    output:() => localStorage.getItem('LYJ_FIRSTVUE_TEST007_INPUT') ? localStorage.getItem('LYJ_FIRSTVUE_TEST007_INPUT') : ''
   }
 }
 </script>

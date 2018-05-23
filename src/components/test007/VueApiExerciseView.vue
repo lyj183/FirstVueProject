@@ -19,18 +19,18 @@
         multiple>
         <i class="el-icon-upload"></i>
         <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-        <el-button class="download" type="text" @click.stop='templateDowloadHandle'>下载模版</el-button>
         <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
       </el-upload>
       <el-input v-model="input" placeholder="请输入名称" style="width: 300px"></el-input>
       <p>名称： {{output}}</p>
       <el-button @click="removeLocalStorage">清除名称localStorage</el-button>
+      <el-button class="download" type="text" @click='templateDowloadHandle'>下载模版</el-button>
     </div>
   </div>
 </template>
 
 <script>
-// let templateUrl=require('../../../static/file/templateFile.csv')
+let templateUrl = '../../../static/file/templateFile.csv'
 export default {
   components : {
   },
@@ -58,7 +58,10 @@ export default {
       */
     },
     templateDowloadHandle() {
-      // window.location=(templateUrl)
+      // 方法一：直接下载文档
+      window.location=(templateUrl)
+      // 方法二：写入文档下载 
+      /*
       let tableHeader = [{
         colname: 'type',
         coltext: '类型',
@@ -148,8 +151,8 @@ export default {
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+      */
     }
-
   },
   watch: {
     input() {

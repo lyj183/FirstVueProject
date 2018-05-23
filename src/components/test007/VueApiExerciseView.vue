@@ -19,6 +19,7 @@
         multiple>
         <i class="el-icon-upload"></i>
         <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+        <el-button class="download" type="text" @click.stop='templateDowloadHandle'>下载模版</el-button>
         <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
       </el-upload>
       <el-input v-model="input" placeholder="请输入名称" style="width: 300px"></el-input>
@@ -29,6 +30,7 @@
 </template>
 
 <script>
+// let templateUrl=require('../../../static/file/templateFile.csv')
 export default {
   components : {
   },
@@ -54,6 +56,98 @@ export default {
         console.log(array)
       } 
       */
+    },
+    templateDowloadHandle() {
+      // window.location=(templateUrl)
+      let tableHeader = [{
+        colname: 'type',
+        coltext: '类型',
+      }, {
+        colname: 'name',
+        coltext: '商品名称',
+      }, {
+        colname: 'number',
+        coltext: '数量',
+      }, {
+        colname: 'price',
+        coltext: '单价',
+      }];
+      let tableBody = [{
+        type: '食品',
+        name: '旺旺雪饼',
+        number: '100箱',
+        price: '25元/袋'
+      }, {
+        type: '食品',
+        name: '双汇火腿',
+        number: '50箱',
+        price: '5元/根'
+      }, {
+        type: '食品',
+        name: '毛毛虫面包',
+        number: '10箱',
+        price: '3元/袋'
+      }, {
+        type: '食品',
+        name: '阿尔卑斯棒棒糖',
+        number: '10箱',
+        price: '0.5元/个'
+      }, {
+        type: '食品',
+        name: '蒙牛酸奶',
+        number: '20箱',
+        price: '12.9元/瓶'
+      }, {
+        type: '水果',
+        name: '香蕉',
+        number: '10斤',
+        price: '2.5元/斤'
+      }, {
+        type: '水果',
+        name: '葡萄',
+        number: '20斤',
+        price: '4元/斤'
+      }, {
+        type: '水果',
+        name: '榴莲',
+        number: '10斤',
+        price: '24元/斤'
+      }, {
+        type: '水果',
+        name: '李子',
+        number: '20斤',
+        price: '4元/斤'
+      }];
+      var csv = '\ufeff';
+      var keys = [];
+      tableHeader.forEach(function(item) {
+        csv += '"' + item.coltext + '",';
+        keys.push(item.colname);
+      });
+      csv = csv.replace(/\,$/, '\n');
+      tableBody.forEach(function(item) {
+        var _item = {};
+        keys.forEach(function(key) {
+        csv += '"' + item[key] + '",';
+        });
+        csv = csv.replace(/\,$/, '\n');
+      });
+      csv = csv.replace(/"null"/g, '""');
+      var blob = new Blob([csv], {
+        type: 'text/csv,charset=UTF-8'
+      });
+      var csvUrl = window.URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      var now = new Date();
+ 
+      function to2(num) {
+        return num > 9 ? num : '0' + num;
+      }
+      a.download = '进货信息导出' + now.getFullYear() + to2((now.getMonth() + 1)) + to2(now.getDate()) + to2(now.getHours()) + to2(now.getMinutes()) + to2(now.getSeconds()) + '.csv';
+      a.href = csvUrl;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
 
   },

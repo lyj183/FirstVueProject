@@ -24,13 +24,27 @@
       <el-input v-model="input" placeholder="请输入名称" style="width: 300px"></el-input>
       <p>名称： {{output}}</p>
       <el-button @click="removeLocalStorage">清除名称localStorage</el-button>
-      <el-button class="download" type="text" @click='templateDowloadHandle'>下载模版</el-button>
+      <el-button class="download" type="text" @click='templateDowloadHandle'>下载csv模版</el-button>
     </div>
   </div>
 </template>
 
 <script>
-let templateUrl = '../../../static/file/templateFile.csv'
+// 下载地址
+// 1、方法一：直接引用
+// let templateUrl = '../../../static/file/templateFile.csv' 
+// 2、方法二：在webpack.base.conf添加转换配置，这么用。
+/*
+  {
+    test: /\.(csv|xlsx|xls)(\?.*)?$/,
+    loader: 'url-loader',
+    query: {
+      limit: 1,
+      name: utils.assetsPath('template/[name].[ext]')
+    }
+  }
+*/
+let templateUrl = require('../../../static/file/templateFile.csv')
 export default {
   components : {
   },

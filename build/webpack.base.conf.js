@@ -69,6 +69,15 @@ module.exports = {
       {
         test: /\.less$/,
         loader: "style-loader!css-loader!less-loader",
+      },
+      // 添加文件下载转换地址
+      {
+        test: /\.(csv|xlsx|xls)(\?.*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 1,
+          name: utils.assetsPath('template/[name].[ext]')
+        }
       }
     ]
   },

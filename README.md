@@ -29,6 +29,12 @@ npm test
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
+## 页面模版
+``` bash
+# CommonTemplateView 
+页面通用模版
+```
+
 ## 练习项目
 ``` bash
 # Test001 
@@ -57,4 +63,7 @@ Dialog 正确打开弹窗
 参考：https://www.npmjs.com/package/vue-html5-editor
 2、上传
 3、下载csv
+
+# Test008
+Css 练习
 ```

@@ -8,6 +8,8 @@ import EChartsView from '@/components/test004/EChartsView'
 import AsyncValidatorView from '@/components/test005/AsyncValidatorView'
 import ElementFormView from '@/components/test005/ElementFormView'
 import DialogContentView from '@/components/test006/DialogContentView'
+import VueApiExerciseView from '@/components/test007/VueApiExerciseView'
+import CssExerciseView from '@/components/test008/CssExerciseView'
 
 Vue.use(Router)
 
@@ -52,7 +54,16 @@ export default new Router({
       path: '/TestView006',
       name: 'TestView006',
       component: DialogContentView
+    },
+    {
+      path: '/TestView007',
+      name: 'TestView007',
+      component: VueApiExerciseView
+    },
+    {
+      path: '/TestView008',
+      name: 'TestView008',
+      component: CssExerciseView
     }
-    
   ]
 })

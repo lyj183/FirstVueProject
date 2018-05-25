@@ -80,6 +80,9 @@
         <div v-if="indexPath[1]=='4-1-1'">
           <vue-api-exercise-view></vue-api-exercise-view>
         </div>
+        <div v-if="indexPath[1]=='4-1-2'">
+          <css-exercise-view></css-exercise-view>
+        </div>
       </el-col>
       <el-col :span="2">
         <div>
@@ -98,6 +101,7 @@ import asyncValidatorView from './test005/AsyncValidatorView'
 import elememtFormView from './test005/ElementFormView'
 import dialogContentView from './test006/DialogContentView'
 import vueApiExerciseView from './test007/VueApiExerciseView'
+import cssExerciseView from './test008/CssExerciseView'
 export default {
   name: 'Home',
   components : {
@@ -108,7 +112,8 @@ export default {
     asyncValidatorView,
     elememtFormView,
     dialogContentView,
-    vueApiExerciseView
+    vueApiExerciseView,
+    cssExerciseView
   },
   data() {
     return {

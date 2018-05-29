@@ -87,7 +87,8 @@ export default {
   },
   data() {
     return {
-
+      form1: {},
+      form2: {}
     }
   },
   methods: {

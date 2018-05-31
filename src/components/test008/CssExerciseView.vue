@@ -14,7 +14,8 @@
           <el-form-item label="图片+浮层：">
             <div class="img-content1">
               <!-- 图片 -->
-              <img src="../../../static/img/001.png" class="img1">
+              <!-- <img src="../../../static/img/001.png" class="img1"> -->
+              <img :src="getPic()" class="img1">
               <!-- 图片浮层 -->
               <div class="cover-img"></div>
               <div class='cover-btn'>
@@ -92,6 +93,11 @@ export default {
     }
   },
   methods: {
+    getPic() {
+      let picJsonString = "[\"http://scpg-uat.oss-cn-shanghai.aliyuncs.com/yinli/058a8070-6c8e-407f-9018-12885fc40aa5.png\"]"
+      let pic = JSON.parse(picJsonString)
+      return pic
+    }
 
   },
   watch: {

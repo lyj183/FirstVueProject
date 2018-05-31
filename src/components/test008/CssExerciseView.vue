@@ -19,8 +19,8 @@
               <!-- 图片浮层 -->
               <div class="cover-img"></div>
               <div class='cover-btn'>
-                <div class='btn'><a>重传</a></div>
-                <div class='btn'><a>删除</a></div>
+                <div class='btn' @click="changePic()"><a>重传</a></div>
+                <div class='btn' @click="deletePic()"><a>删除</a></div>
               </div>
             </div>
           </el-form-item>         
@@ -97,6 +97,16 @@ export default {
       let picJsonString = "[\"http://scpg-uat.oss-cn-shanghai.aliyuncs.com/yinli/058a8070-6c8e-407f-9018-12885fc40aa5.png\"]"
       let pic = JSON.parse(picJsonString)
       return pic
+    },
+    changePic() {
+      if(document.querySelector('.img1').src == "http://localhost:8081/static/img/001.png") {
+        document.querySelector('.img1').src = "http://scpg-uat.oss-cn-shanghai.aliyuncs.com/yinli/058a8070-6c8e-407f-9018-12885fc40aa5.png"
+      } else {
+        document.querySelector('.img1').src = "../../../static/img/001.png"
+      }
+    },
+    deletePic() {
+        document.querySelector('.img-content1').style.display = "none"
     }
 
   },

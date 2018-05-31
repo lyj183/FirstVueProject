@@ -99,7 +99,8 @@ export default {
       return pic
     },
     changePic() {
-      if(document.querySelector('.img1').src == "http://localhost:8081/static/img/001.png") {
+      let picString = RegExp(/static\/img\/001.png/)
+      if(document.querySelector('.img1').src.match(picString)) {
         document.querySelector('.img1').src = "http://scpg-uat.oss-cn-shanghai.aliyuncs.com/yinli/058a8070-6c8e-407f-9018-12885fc40aa5.png"
       } else {
         document.querySelector('.img1').src = "../../../static/img/001.png"
@@ -108,7 +109,6 @@ export default {
     deletePic() {
         document.querySelector('.img-content1').style.display = "none"
     }
-
   },
   watch: {
 

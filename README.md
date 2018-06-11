@@ -47,11 +47,16 @@ Slot插件
 Vuex, Store
 参考：https://blog.csdn.net/zjq_1314520/article/details/79539966
 
-# Test004
+# Test004-1
 Echarts
 
-# Test005
+# Test004-2
+MintUI
+
+# Test005-1
 Async-validator
+
+# Test005-2
 ElementForm-validator
 
 # Test006

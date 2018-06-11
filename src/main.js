@@ -3,8 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 import '../static/css/common.css' // 引入公用css
 import store from './store/store' // 引入store
 import VueHtml5Editor from 'vue-html5-editor'
@@ -14,6 +16,7 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 Vue.use(ElementUI);
+Vue.use(MintUI)
 Vue.use(VueHtml5Editor, config.options)
 
 new Vue({

@@ -18,7 +18,7 @@
               <el-menu-item index="1-1-2">选项1-1-2</el-menu-item>
               <el-menu-item index="1-1-3">选项1-1-3</el-menu-item>
             </el-menu-item-group>
-            <el-menu-item-group title="分组二（ECHARTS）">
+            <el-menu-item-group title="分组二（UI扩充）">
               <el-menu-item index="1-2-1">选项1-2-1</el-menu-item>
               <el-menu-item index="1-2-2">选项1-2-2</el-menu-item>
             </el-menu-item-group>
@@ -68,6 +68,9 @@
         <div v-if="indexPath[1]=='1-2-1'">
           <echarts-view></echarts-view>
         </div>
+        <div v-if="indexPath[1]=='1-2-2'">
+          <mint-ui-view></mint-ui-view>
+        </div>
         <div v-if="indexPath[1]=='2-1-1'">
           <async-validator-view></async-validator-view>
         </div>
@@ -97,6 +100,7 @@ import parentView from './test001/ParentView'
 import parentSlotView from './test002/ParentSlotView'
 import countView from './test003/CountView'
 import echartsView from './test004/EChartsView'
+import mintUiView from './test004/MintUiView'
 import asyncValidatorView from './test005/AsyncValidatorView'
 import elememtFormView from './test005/ElementFormView'
 import dialogContentView from './test006/DialogContentView'
@@ -109,6 +113,7 @@ export default {
     parentSlotView,
     countView,
     echartsView,
+    mintUiView,
     asyncValidatorView,
     elememtFormView,
     dialogContentView,

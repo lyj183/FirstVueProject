@@ -5,6 +5,7 @@ import ParentView from '@/components/test001/ParentView'
 import ParentSlotView from '@/components/test002/ParentSlotView'
 import CountView from '@/components/test003/CountView'
 import EChartsView from '@/components/test004/EChartsView'
+import MintUiView from '@/components/test004/MintUiView'
 import AsyncValidatorView from '@/components/test005/AsyncValidatorView'
 import ElementFormView from '@/components/test005/ElementFormView'
 import DialogContentView from '@/components/test006/DialogContentView'
@@ -36,9 +37,14 @@ export default new Router({
       component: CountView
     },
     {
-      path: '/TestView004',
-      name: 'TestView004',
+      path: '/TestView004-1',
+      name: 'TestView004-1',
       component: EChartsView
+    },
+    {
+      path: '/TestView004-2',
+      name: 'TestView004-2',
+      component: MintUiView
     },
     {
       path: '/TestView005-1',

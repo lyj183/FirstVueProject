@@ -14,17 +14,25 @@
       </mt-navbar>
     </div>
     <div>
-      <mt-tab-container class="page-tabbar-tab-container" v-model="active" swipeable="true">
-        <mt-tab-container-item id="tab-container1">
-          <mt-cell v-for="n in 10" :title="'内容 ' + n" :key="n.id"></mt-cell>
-        </mt-tab-container-item>
-        <mt-tab-container-item id="tab-container2">
-          <mt-cell v-for="n in 4" :title="'测试 ' + n" :key="n.id"></mt-cell>
-        </mt-tab-container-item>
-        <mt-tab-container-item id="tab-container3">
-          <mt-cell v-for="n in 6" :title="'选项 ' + n" :key="n.id"></mt-cell>
-        </mt-tab-container-item>
-      </mt-tab-container>
+      <mt-loadmore :top-method="loadTop" :top-status.sync="topStatus">
+        <div slot="top" class="mint-loadmore-top">
+          <span v-show="topStatus !== 'loading'" :class="{ 'rotate': topStatus === 'drop' }">↓</span>
+          <span v-show="topStatus === 'loading'">Loading...</span>
+        </div>
+        <div>
+          <mt-tab-container class="page-tabbar-tab-container" v-model="active" swipeable="true">
+            <mt-tab-container-item id="tab-container1">
+              <mt-cell v-for="n in data1" :title="'内容 ' + n" :key="n"></mt-cell>
+            </mt-tab-container-item>
+            <mt-tab-container-item id="tab-container2">
+              <mt-cell v-for="n in data2" :title="'测试 ' + n" :key="n"></mt-cell>
+            </mt-tab-container-item>
+            <mt-tab-container-item id="tab-container3">
+              <mt-cell v-for="n in data3" :title="'选项 ' + n" :key="n"></mt-cell>
+            </mt-tab-container-item>
+          </mt-tab-container>
+        </div>
+      </mt-loadmore>
     </div>
   </div>
 </template>
@@ -34,18 +42,24 @@ import {
   Header,
   Cell,
   TabContainer, 
-  TabContainerItem
+  TabContainerItem,
+  Loadmore
 } from 'mint-ui'
 export default {
   components : {
     [Header.name]: Header,
     [Cell.name]: Cell,
     [TabContainer.name]: TabContainer,
-    [TabContainerItem.name]: TabContainerItem
+    [TabContainerItem.name]: TabContainerItem,
+    [Loadmore.name]: Loadmore
   },
   data() {
     return {
-      active: "tab-container1"
+      data1: 10,
+      data2: 10,
+      data3: 10,
+      active: "tab-container1",
+      // topStatus: "loading"
     }
   },
   methods: {
@@ -57,6 +71,15 @@ export default {
     },
     selected() {
       
+    },
+    loadTop(id) {
+      // ...加载更多数据
+      console.log("id: " + id)
+    },
+    topStatus(status) {
+      console.log("status: " + id)
+      this.topStatus = status
+
     }
 
   },

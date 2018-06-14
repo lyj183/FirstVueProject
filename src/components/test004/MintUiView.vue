@@ -13,14 +13,14 @@
         <mt-tab-item id="tab-container3">选项三</mt-tab-item>
       </mt-navbar>
     </div>
-    <div>
-      <mt-loadmore :top-method="loadTop" :top-status.sync="topStatus">
-        <div slot="top" class="mint-loadmore-top">
-          <span v-show="topStatus !== 'loading'" :class="{ 'rotate': topStatus === 'drop' }">↓</span>
-          <span v-show="topStatus === 'loading'">Loading...</span>
-        </div>
+    <div class="main-body" :style="{'-webkit-overflow-scrolling': scrollMode}">
+      <mt-loadmore :top-method="loadTop" 
+                   :bottom-method="loadBottom" 
+                   :bottom-all-loaded="allLoaded" 
+                   :auto-fill="false" 
+                   ref="loadmore">
         <div>
-          <mt-tab-container class="page-tabbar-tab-container" v-model="active" swipeable="true">
+          <mt-tab-container class="page-tabbar-tab-container" v-model="active" :swipeable ="swipe">
             <mt-tab-container-item id="tab-container1">
               <mt-cell v-for="n in data1" :title="'内容 ' + n" :key="n"></mt-cell>
             </mt-tab-container-item>
@@ -59,7 +59,14 @@ export default {
       data2: 10,
       data3: 10,
       active: "tab-container1",
+      swipe: true,
       // topStatus: "loading"
+      searchCondition:{  //分页属性  
+        pageNo:"1",  
+        pageSize:"10"  
+      },  
+      allLoaded: true, //是否可以上拉属性，false可以上拉，true为禁止上拉，就是不让往上划加载数据了  
+      scrollMode:"auto" //移动端弹性滚动效果，touch为弹性滚动，auto是非弹性滚动  
     }
   },
   methods: {
@@ -75,12 +82,44 @@ export default {
     loadTop(id) {
       // ...加载更多数据
       console.log("id: " + id)
+      // 下拉加载 
+      this.loadPageList();  
+      this.$refs.loadmore.onTopLoaded();// 固定方法，查询完要调用一次，用于重新定位  
     },
+    loadBottom() {  
+      // 上拉加载  
+      this.more();// 上拉触发的分页查询  
+      this.$refs.loadmore.onBottomLoaded();// 固定方法，查询完要调用一次，用于重新定位  
+    }, 
     topStatus(status) {
       console.log("status: " + id)
       this.topStatus = status
 
-    }
+    },
+    loadPageList() {  
+      this.isHaveMore(true);  
+      this.data1 += 10;  
+      this.data2 += 10; 
+      this.data3 += 10;  
+      this.$nextTick(function () {  
+        // 原意是DOM更新循环结束时调用延迟回调函数，大意就是DOM元素在因为某些原因要进行修改就在这里写，要在修改某些数据后才能写，  
+        // 这里之所以加是因为有个坑，iphone在使用-webkit-overflow-scrolling属性，就是移动端弹性滚动效果时会屏蔽loadmore的上拉加载效果，  
+        // 花了好久才解决这个问题，就是用这个函数，意思就是先设置属性为auto，正常滑动，加载完数据后改成弹性滑动，安卓没有这个问题，移动端弹性滑动体验会更好  
+        this.scrollMode = "touch";  
+      });   
+    }, 
+    more() {  
+      // 分页查询  
+      this.searchCondition.pageNo = parseInt(this.searchCondition.pageNo) + 1;  
+      this.loadPageList();  
+    },  
+    isHaveMore(isHaveMore) {  
+      // 是否还有下一页，如果没有就禁止上拉刷新  
+      this.allLoaded = true; //true是禁止上拉加载  
+      if(isHaveMore){  
+        this.allLoaded = false;  
+      }  
+    }   
 
   },
   watch: {

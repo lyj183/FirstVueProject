@@ -14,7 +14,7 @@
       </mt-navbar>
     </div>
     <div class="main-body" :style="{'-webkit-overflow-scrolling': scrollMode}">
-      <mt-loadmore :top-method="loadTop" 
+      <mt-loadmore :top-method="loadTop"
                    :bottom-method="loadBottom" 
                    :bottom-all-loaded="allLoaded" 
                    :auto-fill="false" 
@@ -55,20 +55,24 @@ export default {
   },
   data() {
     return {
-      data1: 10,
-      data2: 10,
-      data3: 10,
+      data1: 0,
+      data2: 0,
+      data3: 0,
       active: "tab-container1",
       swipe: true,
       // topStatus: "loading"
-      searchCondition:{  //分页属性  
+      searchCondition:{  // 分页属性  
         pageNo:"1",  
         pageSize:"10"  
       },  
-      allLoaded: true, //是否可以上拉属性，false可以上拉，true为禁止上拉，就是不让往上划加载数据了  
-      scrollMode:"auto" //移动端弹性滚动效果，touch为弹性滚动，auto是非弹性滚动  
+      allLoaded: true, // 是否可以上拉属性，false可以上拉，true为禁止上拉，就是不让往上划加载数据了  
+      scrollMode:"auto", // 移动端弹性滚动效果，touch为弹性滚动，auto是非弹性滚动  
+      firstLoad: true, // 第一次装载数据使用
     }
   },
+  mounted(){  
+    this.loadPageList();  //初次访问查询列表  
+  }, 
   methods: {
     onSubmitFullScreen() {
       this.$router.push({path: '/TestView004-2'})
@@ -80,27 +84,42 @@ export default {
       
     },
     loadTop(id) {
-      // ...加载更多数据
-      console.log("id: " + id)
-      // 下拉加载 
+      // ...下拉加载更多数据 
       this.loadPageList();  
-      this.$refs.loadmore.onTopLoaded();// 固定方法，查询完要调用一次，用于重新定位  
+      // 查询完移除topLoadingText 
+      this.$refs.loadmore.onTopLoaded();
     },
     loadBottom() {  
-      // 上拉加载  
+      // ...下拉加载更多数据  
       this.more();// 上拉触发的分页查询  
       this.$refs.loadmore.onBottomLoaded();// 固定方法，查询完要调用一次，用于重新定位  
+      console.log("上拉。。。。")
     }, 
-    topStatus(status) {
-      console.log("status: " + id)
-      this.topStatus = status
+    // topStatus(status) {
+    //   console.log("status: " + id)
+    //   this.topStatus = status
 
-    },
+    // },
     loadPageList() {  
-      this.isHaveMore(true);  
-      this.data1 += 10;  
-      this.data2 += 10; 
-      this.data3 += 10;  
+      this.isHaveMore(true); 
+      if (this.firstLoad) {
+        this.data1 += 5; 
+        this.data2 += 5; 
+        this.data3 += 5; 
+        this.firstLoad = false;
+      } else {
+        switch (this.active) {
+          case "tab-container1" :
+            this.data1 += 5; 
+            break;
+          case "tab-container2" :
+            this.data2 += 5; 
+            break;
+          case "tab-container3" :
+            this.data3 += 5; 
+            break;          
+        }    
+      }  
       this.$nextTick(function () {  
         // 原意是DOM更新循环结束时调用延迟回调函数，大意就是DOM元素在因为某些原因要进行修改就在这里写，要在修改某些数据后才能写，  
         // 这里之所以加是因为有个坑，iphone在使用-webkit-overflow-scrolling属性，就是移动端弹性滚动效果时会屏蔽loadmore的上拉加载效果，  

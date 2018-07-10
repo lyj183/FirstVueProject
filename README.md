@@ -1,3 +1,22 @@
+# 使用vue-cli初始化webpack工程
+// 参考：https://segmentfault.com/a/1190000015252698
+# 安装
+npm install -g vue-cli
+// 安装完后vue命令就可以使用了。实际上是全局注册了vue、vue-init、vue-list几个命令
+// # ubuntu 系统下
+// [vue-cli@2.9.3] link /usr/local/bin/vue@ -> /usr/local/lib/node_modules/vue-cli/bin/vue
+// [vue-cli@2.9.3] link /usr/local/bin/vue-init@ -> /usr/local/lib/node_modules/vue-cli/bin/vue-init
+// [vue-cli@2.9.3] link /usr/local/bin/vue-list@ -> /usr/local/lib/node_modules/vue-cli/bin/vue-list
+
+vue list
+// 可以发现有browserify、browserify-simple、pwa、simple、webpack、webpack-simple几种模板可选，这里选用webpack。
+
+// # 使用 vue init
+vue init <template-name> <project-name>
+
+// # 例子
+vue init webpack first-vue
+
 # first-vue
 
 > first vue project
@@ -60,9 +79,12 @@ Async-validator
 # Test005-2
 ElementForm-validator
 
-# Test006
+# Test006-1
 Dialog 正确打开弹窗
 参考：https://blog.csdn.net/qq_33594380/article/details/79670400
+
+# Test006-2
+Tree
 
 # Test007
 1、vue-html5-editor

@@ -98,7 +98,6 @@ export default {
     // topStatus(status) {
     //   console.log("status: " + id)
     //   this.topStatus = status
-
     // },
     loadPageList() {  
       this.isHaveMore(true); 
@@ -134,7 +133,7 @@ export default {
     },  
     isHaveMore(isHaveMore) {  
       // 是否还有下一页，如果没有就禁止上拉刷新  
-      this.allLoaded = true; //true是禁止上拉加载  
+      this.allLoaded = true; // true是禁止上拉加载  
       if(isHaveMore){  
         this.allLoaded = false;  
       }  

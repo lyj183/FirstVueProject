@@ -3,7 +3,7 @@
     <div class="crumbs">
       <el-breadcrumb separator-class="el-icon-d-arrow-right">
           <el-breadcrumb-item :to="{ name: 'Home' }">Home</el-breadcrumb-item>
-          <el-breadcrumb-item :to="{ name: 'TestView006' }">TestT006</el-breadcrumb-item>
+          <el-breadcrumb-item :to="{ name: 'TestView006-1' }">TestT006-1</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div class="view-interval child-two-view">

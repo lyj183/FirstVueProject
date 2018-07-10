@@ -38,7 +38,7 @@
               <i class="el-icon-document"></i>
               <span slot="title">导航三</span>
             </template>
-            <el-menu-item-group title="分组一（弹窗）">
+            <el-menu-item-group title="分组一（组件）">
               <el-menu-item index="3-1-1">选项3-1-1</el-menu-item>
               <el-menu-item index="3-1-2">选项3-1-2</el-menu-item>
             </el-menu-item-group>
@@ -80,6 +80,9 @@
         <div v-if="indexPath[1]=='3-1-1'">
           <dialog-content-view></dialog-content-view>
         </div>
+        <div v-if="indexPath[1]=='3-1-2'">
+          <tree-view></tree-view>
+        </div>
         <div v-if="indexPath[1]=='4-1-1'">
           <vue-api-exercise-view></vue-api-exercise-view>
         </div>
@@ -104,6 +107,7 @@ import mintUiView from './test004/MintUiView'
 import asyncValidatorView from './test005/AsyncValidatorView'
 import elememtFormView from './test005/ElementFormView'
 import dialogContentView from './test006/DialogContentView'
+import treeView from './test006/TreeView'
 import vueApiExerciseView from './test007/VueApiExerciseView'
 import cssExerciseView from './test008/CssExerciseView'
 export default {
@@ -117,6 +121,7 @@ export default {
     asyncValidatorView,
     elememtFormView,
     dialogContentView,
+    treeView,
     vueApiExerciseView,
     cssExerciseView
   },

@@ -9,6 +9,7 @@ import MintUiView from '@/components/test004/MintUiView'
 import AsyncValidatorView from '@/components/test005/AsyncValidatorView'
 import ElementFormView from '@/components/test005/ElementFormView'
 import DialogContentView from '@/components/test006/DialogContentView'
+import TreeView from '@/components/test006/TreeView'
 import VueApiExerciseView from '@/components/test007/VueApiExerciseView'
 import CssExerciseView from '@/components/test008/CssExerciseView'
 
@@ -57,9 +58,14 @@ export default new Router({
       component: ElementFormView
     },
     {
-      path: '/TestView006',
-      name: 'TestView006',
+      path: '/TestView006-1',
+      name: 'TestView006-1',
       component: DialogContentView
+    },
+    {
+      path: '/TestView006-2',
+      name: 'TestView006-2',
+      component: TreeView
     },
     {
       path: '/TestView007',

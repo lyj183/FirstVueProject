@@ -21,6 +21,12 @@
         </el-tag>
       </div>
       <el-button @click="openMessageBox" class="view-interval">Message Box</el-button>
+      <div>
+        <span>{{name}}</span>
+        <el-input v-if="isShowInput" v-model="name" :placeholder="name" style="width: 200px;"></el-input>
+        <el-button type="primary" icon="el-icon-edit" circle @click="changeInputShow"></el-button>
+        <el-button type="danger" icon="el-icon-delete" circle></el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -43,6 +49,8 @@ export default {
           tagNames: []
         }
       }, // 缓存，取消操作时用
+      name: '名字',
+      isShowInput: false
     }
   },
   methods: {
@@ -69,6 +77,9 @@ export default {
           });
         }
       });
+    },
+    changeInputShow() {
+      this.isShowInput = true
     }
   }
 }

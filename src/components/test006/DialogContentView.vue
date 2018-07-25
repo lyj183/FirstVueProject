@@ -21,7 +21,7 @@
         </el-tag>
       </div>
       <el-button @click="openMessageBox" class="view-interval">Message Box</el-button>
-      <div>
+      <div class="view-interval child-two-view">
         <span>{{name}}</span>
         <el-input v-if="isShowInput" v-model="name" :placeholder="name" style="width: 200px;"></el-input>
         <el-button type="primary" icon="el-icon-edit" circle @click="changeInputShow"></el-button>

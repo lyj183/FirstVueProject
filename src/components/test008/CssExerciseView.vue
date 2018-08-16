@@ -46,6 +46,26 @@
             <div class="float-div">
             </div>
           </el-form-item>
+          <el-form-item label="弹性盒子：">
+            <div class="flexBox1">
+              <div class="float-div">
+              </div>
+              <div class="float-div">
+              </div>
+              <div class="float-div">
+              </div>
+              <div class="float-div">
+              </div>
+              <div class="float-div">
+              </div>
+              <div class="float-div">
+              </div>
+              <div class="float-div">
+              </div>
+              <div class="float-div">
+              </div>
+            </div>
+          </el-form-item>
         </el-form>
       </el-col>
       <el-col :span="11">
@@ -72,6 +92,26 @@
           <el-form-item label="垂直居中：">
             <div class="center-div">
               <div class="line-height-div">
+              </div>
+            </div>
+          </el-form-item>
+          <el-form-item label="弹性盒子：">
+            <div class="flexBox2">
+              <div class="float-div">
+              </div>
+              <div class="float-div">
+              </div>
+              <div class="float-div">
+              </div>
+              <div class="float-div">
+              </div>
+              <div class="float-div">
+              </div>
+              <div class="float-div">
+              </div>
+              <div class="float-div">
+              </div>
+              <div class="float-div">
               </div>
             </div>
           </el-form-item>
@@ -316,6 +356,21 @@ export default {
   border: 1px solid #ff0000;
   display: inline-block; /* 必须 */
   vertical-align: middle; /* 垂直居中 */
+}
+.flexBox1 {
+  background-color: #F9FAFC;
+  padding:10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap; 
+}
+.flexBox2 {
+  background-color: #F9FAFC;
+  padding:10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
 }
 </style>
 

@@ -237,34 +237,30 @@ export default {
       var bb = aa.replace(/"name"/g,'"label"');
       var cc = bb.replace(/"orgId"/g,'"value"');
       var dd = cc.replace(/"orgs"/g,'"children"');
-
-      console.log("dd");
-      console.log(dd);
+      // 去除"children":[]
+      var ee = dd.replace(/,"children":\[\],/g, ',');
       // 转换成JSON数组给数据赋值
-      this.mockData = JSON.parse(dd);
+      this.mockData = JSON.parse(ee);
     }
     
   }, 
   methods: {
     handleChange(value) {
       console.log(value);
-    },
-    // changeKey(value) {
-    //   var keyArray = ["value", "label", "children"];
-    //   var valueArray = [];
-    //   var data = {};
-    //   for(let i in valueArray) {
-    //     valueArray.push(valueArray[i])
-    //   }
-    //   for(let i in valueArray) {
-    //     data[keyArray[i]] = valueArray[i]
-    //   }
-    //   console.log("data");
-    //   console.dir(data);
-    // }
+    }
   },
   watch: {
-
+    // 数组的watch：深拷贝
+    selectedOptions: {
+　　　　handler(newValue, oldValue) {
+　　　　　　for (let i = 0; i < newValue.length; i++) {
+　　　　　　　　if (oldValue[i] != newValue[i]) {
+　　　　　　　　　　console.log(newValue)
+　　　　　　　　}
+　　　　　　}
+　　　　},
+　　　　deep: true
+    }
   },
   computed: {
 

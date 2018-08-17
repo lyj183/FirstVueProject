@@ -41,6 +41,7 @@
             <el-menu-item-group title="分组一（组件）">
               <el-menu-item index="3-1-1">选项3-1-1</el-menu-item>
               <el-menu-item index="3-1-2">选项3-1-2</el-menu-item>
+              <el-menu-item index="3-1-3">选项3-1-3</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="4">
@@ -83,6 +84,9 @@
         <div v-if="indexPath[1]=='3-1-2'">
           <tree-view></tree-view>
         </div>
+        <div v-if="indexPath[1]=='3-1-3'">
+          <cascader-view></cascader-view>
+        </div>
         <div v-if="indexPath[1]=='4-1-1'">
           <vue-api-exercise-view></vue-api-exercise-view>
         </div>
@@ -108,6 +112,7 @@ import asyncValidatorView from './test005/AsyncValidatorView'
 import elememtFormView from './test005/ElementFormView'
 import dialogContentView from './test006/DialogContentView'
 import treeView from './test006/TreeView'
+import cascaderView from '@/components/test006/CascaderView'
 import vueApiExerciseView from './test007/VueApiExerciseView'
 import cssExerciseView from './test008/CssExerciseView'
 export default {
@@ -122,6 +127,7 @@ export default {
     elememtFormView,
     dialogContentView,
     treeView,
+    cascaderView,
     vueApiExerciseView,
     cssExerciseView
   },

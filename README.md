@@ -86,6 +86,9 @@ Dialog 正确打开弹窗
 # Test006-2
 Tree
 
+# Test006-3
+Cascader
+
 # Test007
 1、vue-html5-editor
 参考：https://www.npmjs.com/package/vue-html5-editor

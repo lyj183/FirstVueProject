@@ -8,7 +8,7 @@
     </div>
     <div class="view-interval child-two-view">
       <h1>vue-html5-editor</h1>
-      <vue-html5-editor :content="content" :height="200"></vue-html5-editor>
+      <vue-html5-editor :content="content" :height="200" @change="updateData"></vue-html5-editor>
     </div>
     <div class="view-interval child-two-view">
       <h1>Element-Upload</h1>
@@ -55,6 +55,10 @@ export default {
     }
   },
   methods: {
+    updateData(e = ''){  
+      this.content = e;  
+      console.info(e);  
+    },
     removeLocalStorage() {
       localStorage.removeItem('LYJ_FIRSTVUE_TEST007_INPUT');
       // window.location.href="http://localhost:8080";
@@ -172,6 +176,9 @@ export default {
     input() {
       // 名称存入LocalStorage
       localStorage.setItem('LYJ_FIRSTVUE_TEST007_INPUT', this.input)
+    },
+    content(newValue, oldValue) {
+        console.log(newValue)
     }
   },
   computed: {

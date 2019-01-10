@@ -53,6 +53,9 @@
               <el-menu-item index="4-1-1">选项4-1-1</el-menu-item>
               <el-menu-item index="4-1-2">选项4-1-2</el-menu-item>
             </el-menu-item-group>
+            <el-menu-item-group title="分组二（拓展）">
+              <el-menu-item index="4-2-1">选项4-2-1</el-menu-item>
+            </el-menu-item-group>
           </el-submenu>
         </el-menu>
       </el-col>
@@ -93,6 +96,9 @@
         <div v-if="indexPath[1]=='4-1-2'">
           <css-exercise-view></css-exercise-view>
         </div>
+        <div v-if="indexPath[1]=='4-2-1'">
+          <table-exercise-view></table-exercise-view>
+        </div>
       </el-col>
       <el-col :span="2">
         <div>
@@ -115,6 +121,7 @@ import treeView from './test006/TreeView'
 import cascaderView from '@/components/test006/CascaderView'
 import vueApiExerciseView from './test007/VueApiExerciseView'
 import cssExerciseView from './test008/CssExerciseView'
+import tableExerciseView from './test009/TableExerciseView'
 export default {
   name: 'Home',
   components : {
@@ -129,7 +136,8 @@ export default {
     treeView,
     cascaderView,
     vueApiExerciseView,
-    cssExerciseView
+    cssExerciseView,
+    tableExerciseView
   },
   data() {
     return {

@@ -68,7 +68,7 @@ export default {
       this.cachedTags.tags.tagNames.splice(tagIndex, 1); 
     },
     openMessageBox() {
-      this.$alert('这是一段内容', '标题名称', {
+      this.$alert('apple pig apple pig apple pig apple pig apple pig apple pig apple pig apple pig apple pig apple pig apple pig apple pig apple pig apple pig apple pig apple pig apple pig apple pig', '标题名称', {
         confirmButtonText: '确定',
         callback: action => {
           this.$message({

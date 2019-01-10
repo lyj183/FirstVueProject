@@ -12,7 +12,8 @@
         <el-cascader
           :options="mockData"
           v-model="selectedOptions"
-          @change="handleChange">
+          @change="handleChange"
+          style="width: 600px">
         </el-cascader>
         <el-time-picker
           is-range

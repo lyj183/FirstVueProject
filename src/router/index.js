@@ -13,6 +13,8 @@ import TreeView from '@/components/test006/TreeView'
 import CascaderView from '@/components/test006/CascaderView'
 import VueApiExerciseView from '@/components/test007/VueApiExerciseView'
 import CssExerciseView from '@/components/test008/CssExerciseView'
+import TableExerciseView from '@/components/test009/TableExerciseView'
+import StepsExerciseView from '@/components/test010/StepsExerciseView'
 
 Vue.use(Router)
 
@@ -82,6 +84,16 @@ export default new Router({
       path: '/TestView008',
       name: 'TestView008',
       component: CssExerciseView
+    },
+    {
+      path: '/TestView009',
+      name: 'TestView009',
+      component: TableExerciseView
+    },
+    {
+      path: '/TestView010',
+      name: 'TestView010',
+      component: StepsExerciseView
     }
   ]
 })

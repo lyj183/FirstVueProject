@@ -13,6 +13,7 @@
       <el-form-item label="年龄：">{{stepFormOne.age}}</el-form-item>
       <el-form-item label="手机号：">{{stepFormOne.mobileVisibale ? stepFormOne.mobile : "***********"}}</el-form-item>
       <el-form-item label="Email：">{{stepFormTwo.email}}</el-form-item>
+      <el-form-item label="密码：">{{stepFormTwo.pass}}</el-form-item>
       </el-form>
     </div>
     <div class="view-interval child-two-view" v-else>
@@ -50,7 +51,9 @@ export default {
         mobileVisibale: 0
       },
       stepFormTwo: {
-        email: ''
+        email: '',
+        pass: '',
+        checkPass: ''
       }
     }
   },

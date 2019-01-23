@@ -19,12 +19,6 @@
         <el-form-item label="手机号：" prop="mobile">
           <el-input v-model.number="stepFormOne.mobile" size="small" style="width: 200px"></el-input>
         </el-form-item>
-        <el-form-item label="显示号码：" prop="mobileVisibale">
-          <el-radio-group v-model="stepFormOne.mobileVisibale">
-            <el-radio :label="0">隐藏</el-radio>
-            <el-radio :label="1">显示</el-radio>
-          </el-radio-group>
-        </el-form-item>
       </el-form>
     </div>
     <div class="view-interval center-view">

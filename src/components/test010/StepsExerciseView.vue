@@ -11,9 +11,9 @@
       <el-form-item label="姓名：">{{stepFormOne.name}}</el-form-item>
       <el-form-item label="性别：">{{stepFormOne.gender === 1 ? "男" : stepFormOne.gender === 2 ? "女" : "保密"}}</el-form-item>
       <el-form-item label="年龄：">{{stepFormOne.age}}</el-form-item>
-      <el-form-item label="手机号：">{{stepFormOne.mobileVisibale ? stepFormOne.mobile : "***********"}}</el-form-item>
+      <el-form-item label="手机号：">{{stepFormOne.mobile | formatMobile}}</el-form-item>
       <el-form-item label="Email：">{{stepFormTwo.email}}</el-form-item>
-      <el-form-item label="密码：">{{stepFormTwo.pass}}</el-form-item>
+      <el-form-item label="密码：">{{stepFormTwo.passVisibale ? stepFormTwo.pass : stepFormTwo.pass | formatPass}}</el-form-item>
       </el-form>
     </div>
     <div class="view-interval child-two-view" v-else>
@@ -47,13 +47,13 @@ export default {
         name: '',
         gender: 0,
         age: 0,
-        mobile: '',
-        mobileVisibale: 0
+        mobile: ''
       },
       stepFormTwo: {
         email: '',
         pass: '',
-        checkPass: ''
+        checkPass: '',
+        passVisibale: 0
       }
     }
   },
@@ -73,6 +73,29 @@ export default {
   },
   computed: {
 
+  },
+  filters: {
+    formatMobile(value) {
+      if(!value) return '';
+      //手机号中间四位隐藏
+      if(value){
+        console.log("mobile的类型", typeof value);   // 这里注意是number类型，不是string类型，因为校验StepOneView中其type是number
+        let mobileStr = String(value)
+        let frontTel = mobileStr.slice(0,3);
+        let behindTel = mobileStr.slice(7);
+        return frontTel + '****' + behindTel;
+      }
+    },
+    formatPass(value) {
+      if(!value) return '';
+      if(value){
+        let passStr = ''
+        for (let i=0; i<value.length; i++) {
+          passStr += "*"
+        }
+        return passStr;
+      }
+    }
   }
 }
 </script>

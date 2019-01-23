@@ -13,6 +13,12 @@
         <el-form-item label="确认密码" prop="checkPass">
           <el-input type="password" v-model="stepFormTwo.checkPass" autocomplete="off" size="small" style="width: 200px"></el-input>
         </el-form-item>
+        <el-form-item label="显示密码：" prop="passVisibale">
+          <el-radio-group v-model="stepFormTwo.passVisibale">
+            <el-radio :label="0">隐藏</el-radio>
+            <el-radio :label="1">显示</el-radio>
+          </el-radio-group>
+        </el-form-item>
       </el-form>
     </div>
     <div class="view-interval center-view">

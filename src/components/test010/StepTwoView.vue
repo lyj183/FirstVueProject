@@ -22,7 +22,8 @@
       </el-form>
     </div>
     <div class="view-interval center-view">
-      <el-button size="small" @click="saveForm('stepFormTwo')">保存</el-button>
+      <el-button size="small" @click="changeStep">上一步</el-button>
+      <el-button size="small" @click="saveForm('stepFormTwo')" type="primary">保存</el-button>
       <el-button size="small" @click="resetForm('stepFormTwo')">重置</el-button>
     </div>
   </div>
@@ -69,6 +70,9 @@ export default {
     }
   },
   methods: {
+    changeStep() {
+      this.$emit('changeStep', 1);
+    },
     saveForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {

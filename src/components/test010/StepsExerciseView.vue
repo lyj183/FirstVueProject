@@ -25,7 +25,7 @@
         </el-steps>
       </div>
       <step-one-view v-if="step === 1" @changeStep="changeStep" :stepFormOne="stepFormOne"></step-one-view>
-      <step-two-view v-if="step === 2" @saveForm="saveForm" :stepFormTwo="stepFormTwo"></step-two-view>
+      <step-two-view v-if="step === 2" @changeStep="changeStep" @saveForm="saveForm" :stepFormTwo="stepFormTwo"></step-two-view>
     </div>
 
   </div>

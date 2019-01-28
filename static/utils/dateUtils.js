@@ -32,7 +32,6 @@ export default {
 
   /**
    * 获取格式化日期
-   * @author yangxinghua1
    * @param { string } time - 可转化为js date类型的时间，字符串等
    * @param { string } [type] - 格式化的类型，'short'与's'指代短类型(e.g. 2016-1-12)，'long'与'l'指代长类型(e.g. 2016-01-12)。默认是长类型
    * @param { string } [dateSep] - 用来分隔日期的字符。默认是'-'，用 - 分隔
@@ -63,7 +62,6 @@ export default {
 
   /**
    * 获取格式化时间
-   * @author yangxinghua1
    * @param { string } time - 可转化为js date类型的时间，字符串等
    * @param { string } [type] - 格式化的类型，'short'与's'指代短类型(e.g. 18:02)，'long'与'l'指代长类型(e.g. 18:02:10)。默认是长类型
    * @return { string } 格式化后的时间字符串或者空字符串
@@ -92,8 +90,6 @@ export default {
 
   /**
    * 格式化日期时间
-   * @author yangxinghua1
-   * @private
    * @param { string } time - 可转化为js date类型的时间，字符串等
    * @param { string } type - 格式化的类型，'DT'代表日期时间，'D'代表日期，'T'代表时间
    * @param { string } subType - 格式化的子类型，'long'代表长类型2016-01-12 18:02:10(DT) | 2016-01-12(D) | 18:02:10(T)，'short'代表短类型2016-1-12 18:02:10(DT) | 2016-1-12(D) | 18:02 (T)
@@ -140,4 +136,4 @@ export default {
       return ''
     }
   }
-};
+}

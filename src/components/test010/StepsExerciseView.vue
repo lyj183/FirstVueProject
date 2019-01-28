@@ -18,6 +18,16 @@
       <el-form-item label="密码：">{{stepFormTwo.pass | formatPass(stepFormTwo.passVisibale)}}</el-form-item>
       <!-- 注意这里的坑，不能这么写，返回都*** ，如果后面加（），返回都是原值 -->
       <!-- <el-form-item label="密码：">{{stepFormTwo.passVisibale ? stepFormTwo.pass : stepFormTwo.pass | formatPass }}</el-form-item> -->
+      <el-form-item label="改写：">
+        <el-select v-model="value" placeholder="请选择" @change="editChange">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+        </el-select>
+      </el-form-item>
       </el-form>
     </div>
     <div class="view-interval child-two-view" v-else>
@@ -61,7 +71,15 @@ export default {
         pass: '',
         checkPass: '',
         passVisibale: 0
-      }
+      },
+      options: [{
+        value: 1,
+        label: '改写第一步'
+      }, {
+        value: 2,
+        label: '改写第二步'
+      }],
+      value: ''
     }
   },
   mounted(){  
@@ -73,6 +91,12 @@ export default {
     },
     saveForm(value) {
       this.showInfo = value;
+    },
+    editChange(value) {
+      this.saveForm(false);
+      this.$nextTick(() => {
+        this.changeStep(value);
+      });
     }
   },
   watch: {

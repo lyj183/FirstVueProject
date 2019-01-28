@@ -19,6 +19,19 @@
         <el-form-item label="手机号：" prop="mobile">
           <el-input v-model.number="stepFormOne.mobile" size="small" style="width: 200px"></el-input>
         </el-form-item>
+        <el-form-item label="选择时间：" prop="selectedDate">
+          <el-date-picker
+            v-model="stepFormOne.selectedDate" 
+            type="daterange"
+            size="small"
+            format="yyyy/MM/dd"
+            range-separator="-"
+            start-placeholder="年/月/日"
+            end-placeholder="年/月/日"
+            @change="changeSelectedDate"
+            style="width: 250px">
+          </el-date-picker>
+        </el-form-item>
       </el-form>
     </div>
     <div class="view-interval center-view">
@@ -29,6 +42,7 @@
 </template>
 
 <script>
+import dateUtils from'../../../static/utils/dateUtils.js'
 export default {
   props: {
     stepFormOne: Object
@@ -89,7 +103,16 @@ export default {
       } else {
         callback();
       }
-    }
+    },
+    changeSelectedDate(date) {
+      if(date) {
+        this.stepFormOne.startTime = dateUtils.getDate(date[0],'s') + " 00:00:00";
+        this.stepFormOne.endTime =  dateUtils.getDate(date[1],'s') + " 23:59:59";
+      } else {
+        this.stepFormOne.startTime = '';
+        this.stepFormOne.endTime = '';
+      }
+    },
   }
 }
 

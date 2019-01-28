@@ -12,6 +12,8 @@
       <el-form-item label="性别：">{{stepFormOne.gender === 1 ? "男" : stepFormOne.gender === 2 ? "女" : "保密"}}</el-form-item>
       <el-form-item label="年龄：">{{stepFormOne.age}}</el-form-item>
       <el-form-item label="手机号：">{{stepFormOne.mobile | formatMobile}}</el-form-item>
+      <el-form-item label="开始时间：">{{stepFormOne.startTime}}</el-form-item>
+      <el-form-item label="结束时间：">{{stepFormOne.endTime}}</el-form-item>
       <el-form-item label="Email：">{{stepFormTwo.email}}</el-form-item>
       <el-form-item label="密码：">{{stepFormTwo.pass | formatPass(stepFormTwo.passVisibale)}}</el-form-item>
       <!-- 注意这里的坑，不能这么写，返回都*** ，如果后面加（），返回都是原值 -->
@@ -49,7 +51,10 @@ export default {
         name: '',
         gender: 0,
         age: 0,
-        mobile: ''
+        mobile: '',
+        selectedDate: [],
+        startTime: '',
+        endTime: ''
       },
       stepFormTwo: {
         email: '',

@@ -9,23 +9,23 @@
     <div class="parent-view-content-wrap view-interval child-two-view">
       <h1>async-validator</h1>
       <div class="view-interval center-view">
-        <p>手机号码</p>
-        <el-input class="input-view" v-model="inputForm.mobile" placeholder="请输入手机号码"></el-input>
+        <p>手机号码：</p>
+        <el-input class="input-view" size="small" v-model="inputForm.mobile" placeholder="请输入手机号码"></el-input>
       </div>
 
       <div class="view-interval center-view">
-        <p>身份证号码</p>
-        <el-input class="input-view" v-model="inputForm.id" placeholder="请输入身份证号码"></el-input>
+        <p>身份证号码：</p>
+        <el-input class="input-view" size="small" v-model="inputForm.id" placeholder="请输入身份证号码"></el-input>
       </div>
 
       <div class="view-interval center-view">
-        <p>姓名</p>
-        <el-input class="input-view" v-model="inputForm.name" placeholder="请输入姓名"></el-input>
+        <p>姓名：</p>
+        <el-input class="input-view" size="small" v-model="inputForm.name" placeholder="请输入姓名"></el-input>
       </div>
 
       <div class="view-interval center-view">
-        <p>Email</p>
-        <el-input class="input-view" v-model="inputForm.email" placeholder="请输入Email"></el-input>
+        <p>Email：</p>
+        <el-input class="input-view" size="small" v-model="inputForm.email" placeholder="请输入Email"></el-input>
       </div>
       <div class="view-interval center-view">
         <el-button @click="submitForm">提交</el-button>

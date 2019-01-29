@@ -27,7 +27,7 @@ export default {
 
     }
   },
-  mounted(){  
+  mounted() {  
     
   }, 
   methods: {
@@ -37,6 +37,9 @@ export default {
 
   },
   computed: {
+
+  },
+  filters: {
 
   }
 }

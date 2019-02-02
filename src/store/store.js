@@ -15,7 +15,7 @@ const mutations = {
   }
 };
 const getters = {
-  count: function (state) {
+  count(state) {
     let newcount = state.count + 100;  
     // return state.count += 100;
     return newcount;
@@ -25,13 +25,13 @@ const getters = {
 // Action是异步改变state的状态，而mutation是同步。 
 // Action里面是可以调用Mutation里面的方法的。
 const actions = {
-  addAction(context) {
-      // context.commit('add');
-      setTimeout(() => { context.commit('add') }, 3000);
+  addAction(state) {
+      // state.commit('add');
+      setTimeout(() => { state.commit('add') }, 3000);
       console.log('我提前执行了');
   },
-  mulAction(context) {
-      context.commit('mul');
+  mulAction(state) {
+    state.commit('mul');
   }
 };
 var vuexStore = new Vuex.Store({
